@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuvraj Pratap Singh</title>
+<meta name="description" content="Yuvraj Pratap Singh, AI engineer who loves emerging AI and builds it into every field: healthcare, law, defense, manufacturing and business. 2 IEEE publications and a registered design patent.">
+<meta property="og:title" content="Yuvraj Pratap Singh, AI Engineer">
+<meta property="og:description" content="AI engineer who loves emerging AI and builds it into every field: healthcare, law, defense, manufacturing and business.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0D0A15">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230D0A15'/%3E%3Cg fill='%23FF5C8A'%3E%3Ccircle cx='4' cy='4' r='1.3'/%3E%3Ccircle cx='8' cy='4' r='1.3'/%3E%3Ccircle cx='12' cy='4' r='1.3'/%3E%3Ccircle cx='4' cy='8' r='1.3'/%3E%3Ccircle cx='8' cy='8' r='1.3'/%3E%3Ccircle cx='12' cy='8' r='1.3'/%3E%3Ccircle cx='4' cy='12' r='1.3'/%3E%3Ccircle cx='8' cy='12' r='1.3'/%3E%3Ccircle cx='12' cy='12' r='1.3'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* One dark world: a live point cloud behind the page, glowing in stain pink and violet.
+   Layout: left-aligned text column over the cloud; the cloud morphs per section on the right. */
+:root {
+  --bg: #0D0A15;
+  --glass: rgba(24, 19, 38, 0.74);
+  --solid: #191428;
+  --ink: #EFEBF7;
+  --muted: #A9A1BE;
+  --line: rgba(236, 230, 255, 0.13);
+  --eosin: #FF5C8A;
+  --hema: #A796FF;
+  --xray: #7FE3EA;
+  --ok: #4ADE9A;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --wrap: 1080px;
+  --rail: 0px;
+  color-scheme: dark;
+}
+@media (min-width: 1200px) { :root { --rail: 170px; } }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--hema); text-underline-offset: 3px; }
+a:hover { color: var(--eosin); }
+:focus-visible { outline: 2px solid var(--eosin); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3, h4 { font-family: var(--display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; }
+
+/* The cloud sits behind everything */
+#field { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+#field canvas { display: block; width: 100%; height: 100%; }
+.scrim {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(13,10,21,.92) 0%, rgba(13,10,21,.74) 38%, rgba(13,10,21,.18) 68%, rgba(13,10,21,0) 84%);
+}
+@media (max-width: 899px) { .scrim { background: rgba(13,10,21,.5); } }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
+
+/* Top bar */
+.top {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(13, 10, 21, 0.62);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.top .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 62px; padding: 0 clamp(16px, 3vw, 32px); }
+.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-size: 1.2rem; letter-spacing: -0.01em; }
+.dots { width: 20px; height: 20px; background-image: radial-gradient(circle, var(--eosin) 1.3px, transparent 1.6px); background-size: 5px 5px; }
+.logo .a { color: var(--eosin); font-weight: 500; }
+.logo .b { color: var(--hema); font-weight: 300; }
+.nav { display: flex; gap: 22px; align-items: center; font-family: var(--display); font-size: 0.95rem; }
+.nav a { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--ink); }
+.nav .btn-sm { color: var(--bg); background: var(--ink); padding: 7px 15px; border-radius: 999px; font-weight: 600; }
+.nav .btn-sm:hover { background: var(--eosin); color: #fff; }
+@media (max-width: 760px), (min-width: 1200px) { .nav .mid { display: none; } }
+
+/* Side rail, like a scanner index */
+.rail { display: none; }
+@media (min-width: 1200px) {
+  .rail { display: block; position: fixed; left: 30px; top: 50%; transform: translateY(-50%); z-index: 5; }
+}
+.rail ol { list-style: none; display: grid; gap: 11px; font-family: var(--display); font-size: 0.9rem; }
+.rail a { display: flex; align-items: center; gap: 10px; color: var(--muted); text-decoration: none; }
+.rail a::before { content: ""; display: block; width: 12px; height: 1.5px; background: var(--line); transition: width .35s ease, background-color .35s ease; }
+.rail a:hover { color: var(--ink); }
+.rail a.active { color: var(--eosin); }
+.rail a.active::before { width: 40px; background: var(--eosin); }
+
+/* Hero */
+.hero { min-height: min(92vh, 880px); display: flex; align-items: center; padding: clamp(56px, 9vw, 110px) 0 clamp(56px, 7vw, 80px); }
+.hero .wrap, .field .wrap { width: 100%; }
+.hero .col { max-width: 620px; }
+.status {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-size: 0.9rem;
+  background: var(--glass); border: 1px solid var(--line);
+  padding: 6px 14px 6px 10px; border-radius: 999px;
+}
+.pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); animation: ping 2.4s infinite; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(74,222,154,.5); } 70% { box-shadow: 0 0 0 9px rgba(74,222,154,0); } 100% { box-shadow: 0 0 0 0 rgba(74,222,154,0); } }
+.name {
+  margin-top: 22px; font-weight: 800; font-variation-settings: "wdth" 125;
+  font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; letter-spacing: -0.03em;
+}
+.name span { display: block; }
+.name span:nth-child(2) { color: var(--hema); }
+.name span:nth-child(3) { color: var(--eosin); }
+.role-title { margin-top: 16px; font-family: var(--display); font-weight: 600; font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--ink); }
+.statement { margin-top: 18px; font-family: var(--display); font-weight: 300; font-size: clamp(1.35rem, 2.7vw, 1.95rem); line-height: 1.22; letter-spacing: -0.01em; max-width: 22em; }
+.lede { margin-top: 18px; color: var(--muted); font-size: 1.08rem; max-width: 36em; }
+.ctas { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--display); font-weight: 600; font-size: 1rem;
+  padding: 13px 22px; border-radius: 999px; text-decoration: none; cursor: pointer;
+  border: 1.5px solid var(--ink); color: var(--ink); background: transparent;
+}
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn.primary { background: var(--eosin); border-color: var(--eosin); color: #fff; }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.hero-links { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--display); font-size: 0.95rem; }
+.hero-links a { color: var(--ink); text-decoration-color: var(--eosin); text-decoration-thickness: 2px; }
+.where { margin-top: 18px; color: var(--muted); font-size: 0.98rem; }
+
+/* Stat strip */
+.strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.strip .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.strip .cell { padding: 22px 18px; border-left: 1px solid var(--line); }
+.strip .cell:first-child { border-left: 0; padding-left: 0; }
+.strip b { display: block; font-family: var(--display); font-weight: 800; font-variation-settings: "wdth" 120; font-size: clamp(1.45rem, 3vw, 2rem); color: var(--eosin); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.strip span { color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 760px) {
+  .strip .wrap { grid-template-columns: 1fr 1fr; }
+  .strip .cell { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .strip .cell:nth-child(-n+2) { border-top: 0; }
+  .strip .cell:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+}
+
+/* Sections */
+.block { padding: clamp(84px, 12vw, 150px) 0 0; }
+.sec-head { max-width: 760px; margin-bottom: clamp(30px, 4vw, 48px); }
+.sec-head h2 { font-weight: 300; font-size: clamp(2.05rem, 4.8vw, 3.5rem); line-height: 1.06; letter-spacing: -0.025em; }
+.sec-head p { margin-top: 16px; color: var(--muted); max-width: 38em; }
+.glass { background: var(--glass); border: 1px solid var(--line); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+
+/* Vision */
+.pull { margin: 0; padding-left: clamp(18px, 3vw, 30px); border-left: 3px solid var(--eosin); font-family: var(--body); font-style: italic; font-size: clamp(1.3rem, 2.8vw, 1.85rem); line-height: 1.38; max-width: 30em; }
+.pillars { margin-top: clamp(32px, 5vw, 52px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pillar { border-radius: 16px; padding: 22px 24px; }
+.pillar h3 { font-size: 1.18rem; font-weight: 700; font-variation-settings: "wdth" 106; color: var(--hema); }
+.pillar p { margin-top: 10px; color: var(--muted); font-size: 0.99rem; }
+@media (max-width: 900px) { .pillars { grid-template-columns: 1fr; } }
+
+/* Fields */
+.field { min-height: 76vh; display: flex; align-items: center; padding: 36px 0; }
+@media (max-width: 899px) { .field { min-height: 0; padding: 44px 0; } }
+.field .col { max-width: 600px; }
+.kicker { font-family: var(--display); font-weight: 600; font-size: 0.95rem; color: var(--eosin); }
+.field h3 { margin-top: 6px; font-weight: 300; font-size: clamp(1.75rem, 3.8vw, 2.7rem); line-height: 1.1; letter-spacing: -0.02em; }
+.field .col > p { margin-top: 14px; color: var(--muted); max-width: 34em; }
+.built { margin-top: 22px; border-radius: 16px; padding: 18px 22px; }
+.built h4 { font-size: 0.98rem; font-weight: 600; color: var(--ink); }
+.built ul { margin-top: 10px; padding-left: 1.1em; display: grid; gap: 7px; font-size: 0.99rem; }
+.built li::marker { color: var(--eosin); }
+.built a { font-family: var(--display); font-weight: 600; }
+
+/* Knowledge */
+.kgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1000px) { .kgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .kgrid { grid-template-columns: 1fr; } }
+.kitem { border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.kitem h3 { font-size: 1.12rem; font-weight: 700; font-variation-settings: "wdth" 104; }
+.kitem p { color: var(--muted); font-size: 0.97rem; }
+.kitem .tools { margin-top: auto; padding-top: 10px; border-top: 1px dashed var(--line); font-family: var(--display); font-size: 0.86rem; color: var(--hema); }
+.emerging { margin-top: 18px; border-radius: 18px; padding: clamp(20px, 3vw, 30px); }
+.emerging h3 { font-size: 1.25rem; font-weight: 700; }
+.emerging > p { margin-top: 8px; color: var(--muted); max-width: 44em; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; list-style: none; }
+.chips li { font-family: var(--display); font-size: 0.88rem; padding: 6px 13px; border-radius: 999px; background: rgba(167,150,255,.14); color: var(--hema); border: 1px solid rgba(167,150,255,.25); }
+
+/* Flagship project */
+.feature { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); border-radius: 22px; overflow: hidden; }
+@media (max-width: 900px) { .feature { grid-template-columns: 1fr; } }
+.feature .copy { padding: clamp(24px, 4vw, 40px); }
+.feature h3 { margin-top: 8px; font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 800; font-variation-settings: "wdth" 108; letter-spacing: -0.015em; line-height: 1.08; }
+.feature .copy > p { margin-top: 16px; color: var(--muted); }
+.metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 26rem; margin-top: 24px; border-top: 1px solid var(--line); }
+.metric { padding: 16px 12px 0 0; }
+.metric + .metric { padding-left: 16px; border-left: 1px solid var(--line); }
+.metric b { display: block; font-family: var(--display); font-weight: 800; font-variation-settings: "wdth" 115; font-size: clamp(1.4rem, 3vw, 1.95rem); color: var(--eosin); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.metric span { font-family: var(--display); font-size: 0.85rem; color: var(--muted); }
+.note { margin-top: 10px; font-family: var(--display); font-size: 0.85rem; color: var(--muted); }
+.repo { display: inline-block; margin-top: 18px; font-family: var(--display); font-weight: 600; }
+.feature .side { border-left: 1px solid var(--line); padding: clamp(16px, 3vw, 28px); display: flex; align-items: center; background: rgba(13,10,21,.45); }
+@media (max-width: 900px) { .feature .side { border-left: 0; border-top: 1px solid var(--line); } }
+
+/* Agent trace */
+.trace { width: 100%; background: var(--solid); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; }
+.trace-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 0.88rem; }
+.trace-head .sub { color: var(--muted); }
+.replay { font-family: var(--display); font-size: 0.82rem; font-weight: 600; color: var(--hema); background: rgba(167,150,255,.14); border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+.replay:hover { color: #fff; background: var(--hema); }
+.trace-task { padding: 14px 16px 6px; color: var(--muted); }
+.trace-task b { color: var(--ink); font-weight: 600; }
+.steps { list-style: none; padding: 6px 8px 10px; }
+.step { display: grid; grid-template-columns: 1.4rem 4.4rem minmax(0, 1fr) auto; gap: 8px; align-items: baseline; padding: 7px 8px; border-radius: 10px; transition: background-color .25s ease, opacity .25s ease; }
+.step .n { color: var(--muted); }
+.step .v { color: var(--hema); font-weight: 600; }
+.step .d { overflow-wrap: anywhere; }
+.step .s { color: var(--ok); font-weight: 600; white-space: nowrap; }
+.step .s.flag { color: var(--eosin); }
+.step.pending { opacity: .4; }
+.step.pending .s { color: var(--muted); }
+.step.running { background: rgba(255,92,138,.14); opacity: 1; }
+.step.running .s { color: var(--eosin); }
+.trace-result { margin: 0 16px 16px; padding: 12px 14px; border-radius: 12px; background: rgba(167,150,255,.14); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; transition: opacity .3s ease; }
+.trace-result.pending { opacity: .4; }
+.trace-result b { color: var(--hema); }
+@media (max-width: 420px) {
+  .trace { font-size: 0.74rem; }
+  .step { grid-template-columns: 1.1rem 3.8rem minmax(0, 1fr); }
+  .step .s { grid-column: 3; }
+}
+
+/* Experience */
+.timeline { list-style: none; }
+.role { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 10px 30px; padding-bottom: 34px; }
+.role .when { font-family: var(--display); font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.role .body { border-left: 2px solid var(--line); padding-left: 28px; position: relative; max-width: 46em; }
+.role .body::before { content: ""; position: absolute; left: -7px; top: 9px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--eosin); }
+.role h3 { font-size: 1.32rem; font-weight: 700; font-variation-settings: "wdth" 106; }
+.role .meta { color: var(--muted); font-family: var(--display); font-size: 0.93rem; margin-top: 2px; }
+.role ul { margin-top: 12px; padding-left: 1.1em; display: grid; gap: 8px; }
+.role li::marker { color: var(--eosin); }
+@media (max-width: 640px) { .role { grid-template-columns: 1fr; gap: 6px; } .role .when { padding-left: 30px; } }
+.edu { margin-top: 26px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; list-style: none; }
+@media (max-width: 860px) { .edu { grid-template-columns: 1fr; } }
+.edu li { border-radius: 14px; padding: 18px 20px; }
+.edu b { font-family: var(--display); font-size: 1.04rem; display: block; }
+.edu span { color: var(--muted); font-size: 0.97rem; }
+.edu small { display: block; color: var(--muted); font-family: var(--display); font-size: 0.85rem; margin-top: 2px; }
+
+/* Research */
+.rgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 900px) { .rgrid { grid-template-columns: 1fr; } }
+.rcard { border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.pill { align-self: flex-start; font-family: var(--display); font-weight: 600; font-size: 0.8rem; padding: 4px 10px; border-radius: 999px; }
+.pill.paper { background: rgba(255,92,138,.16); color: var(--eosin); }
+.pill.ip { background: rgba(127,227,234,.14); color: var(--xray); }
+.rcard h3 { font-size: 1.14rem; font-weight: 700; line-height: 1.28; }
+.rcard p { color: var(--muted); font-size: 0.97rem; }
+.rcard .foot { margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line); font-family: var(--display); font-size: 0.9rem; }
+.rcard a.foot { font-weight: 600; text-decoration: none; }
+.rcard a.foot:hover { text-decoration: underline; }
+
+/* Talk */
+.talk { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 4vw, 40px); align-items: center; border-radius: 22px; padding: clamp(24px, 4vw, 40px); }
+.date { text-align: center; font-family: var(--display); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 20px; min-width: 7.5rem; }
+.date .d { font-size: 3rem; font-weight: 800; line-height: 1; font-variation-settings: "wdth" 125; color: var(--eosin); }
+.date .m { font-size: 1rem; margin-top: 4px; color: var(--muted); }
+.talk h3 { font-size: clamp(1.3rem, 2.8vw, 1.85rem); font-weight: 700; line-height: 1.18; }
+.talk p { margin-top: 10px; color: var(--muted); }
+@media (max-width: 560px) { .talk { grid-template-columns: 1fr; } .date { justify-self: start; } }
+
+/* Method */
+.method { list-style: none; counter-reset: m; }
+.method li { counter-increment: m; display: grid; grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 1.4fr); gap: 8px 30px; padding: 22px 0; border-top: 1px solid var(--line); }
+.method li:last-child { border-bottom: 1px solid var(--line); }
+.method li::before { content: counter(m); font-family: var(--display); font-weight: 200; font-variation-settings: "wdth" 125; font-size: 2.4rem; line-height: 1; color: var(--eosin); }
+.method h3 { font-size: 1.18rem; font-weight: 700; }
+.method p { color: var(--muted); }
+@media (max-width: 760px) { .method li { grid-template-columns: 3rem minmax(0, 1fr); } .method p { grid-column: 2; } }
+
+/* Contact */
+.contact { padding: clamp(96px, 13vw, 160px) 0 clamp(48px, 7vw, 72px); }
+.contact h2 { font-weight: 300; font-size: clamp(2.3rem, 6vw, 4.4rem); letter-spacing: -0.03em; line-height: 1.02; max-width: 13em; }
+.contact .lede { margin-top: 18px; }
+.contact .row { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email { font-family: var(--display); font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 600; overflow-wrap: anywhere; }
+.copied { font-family: var(--display); font-size: 0.9rem; color: var(--ok); min-height: 1.4em; margin-top: 10px; }
+.links { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
+footer { border-top: 1px solid var(--line); padding: 22px 0 32px; color: var(--muted); font-family: var(--display); font-size: 0.9rem; background: rgba(13,10,21,.7); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+footer a { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pulse { animation: none; }
+  .step, .trace-result, .rail a::before { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="field" aria-hidden="true"></div>
+<div class="scrim" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="#home" aria-label="Yuvraj Pratap Singh, home"><span class="dots" aria-hidden="true"></span><span><span class="a">yuvraj</span><span class="b">singh</span></span></a>
+    <nav class="nav" aria-label="Sections">
+      <a class="mid" href="#fields">Fields</a>
+      <a class="mid" href="#knowledge">Knowledge</a>
+      <a class="mid" href="#work">Work</a>
+      <a class="mid" href="#research">Research</a>
+      <a class="btn-sm" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<nav class="rail" aria-label="Page index">
+  <ol>
+    <li><a href="#home" data-for="home">Home</a></li>
+    <li><a href="#vision" data-for="vision">Vision</a></li>
+    <li><a href="#fields" data-for="fields">Fields</a></li>
+    <li><a href="#knowledge" data-for="knowledge">Knowledge</a></li>
+    <li><a href="#work" data-for="work">Work</a></li>
+    <li><a href="#experience" data-for="experience">Experience</a></li>
+    <li><a href="#research" data-for="research">Research</a></li>
+    <li><a href="#contact" data-for="contact">Contact</a></li>
+  </ol>
+</nav>
+
+<main>
+  <section class="hero" id="home" data-shape="brain" data-nav="home">
+    <div class="wrap">
+      <div class="col">
+        <span class="status"><span class="pulse" aria-hidden="true"></span>Open to remote AI engineering roles</span>
+        <h1 class="name"><span>Yuvraj</span><span>Pratap</span><span>Singh</span></h1>
+        <p class="role-title">AI Engineer</p>
+        <p class="statement">I build AI for every field it can make better: hospitals, courtrooms, factories, the skies and the businesses in between.</p>
+        <p class="lede">I'm an AI engineer who loves emerging AI. When a new idea lands, like AI agents, multimodal models or retrieval-augmented generation, I want to understand it deeply and then build something real with it.</p>
+        <div class="ctas">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn" href="#fields">See where I've used AI</a>
+        </div>
+        <div class="hero-links">
+          <a href="https://github.com/Yuvraj235">GitHub</a>
+          <a href="https://www.linkedin.com/in/yuvrajpratapsingh23">LinkedIn</a>
+          <a href="#research">IEEE papers</a>
+          <a href="Yuvraj_Pratap_Singh_Resume.pdf" download>Download resume</a>
+        </div>
+        <p class="where">Based in Noida, India. 2+ years building AI for teams in Sweden, the US, the UAE and India.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div class="cell"><b>5 fields</b><span>healthcare to defense</span></div>
+      <div class="cell"><b>2 IEEE</b><span>publications, 2025</span></div>
+      <div class="cell"><b>1 design</b><span>patent, AI X-ray machine</span></div>
+      <div class="cell"><b>4 countries</b><span>India, Sweden, USA, UAE</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="vision" data-shape="brain" data-nav="vision">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What if every field had a team of AI agents working beside it?</h2>
+        <p>That question is why I do this work.</p>
+      </div>
+      <blockquote class="pull">I believe AI should work beside people everywhere: in hospitals, courts, factories and businesses. It should take on the routine work and hand the hard calls to a human, with the evidence laid out.</blockquote>
+      <div class="pillars">
+        <div class="pillar glass">
+          <h3>Agents that do the work</h3>
+          <p>Chatbots answer questions. Agents read the record, run the checks, call the right tools and finish the task. That shift from talking to doing is what excites me most about AI right now.</p>
+        </div>
+        <div class="pillar glass">
+          <h3>AI you can question</h3>
+          <p>Whether it's a diagnosis or a legal answer, trust is everything. An agent should explain why it decided something, say when it isn't sure, and never act beyond the permissions it was given.</p>
+        </div>
+        <div class="pillar glass">
+          <h3>Always on the next thing</h3>
+          <p>AI changes every month, and that's what I love about it. I read the new papers, try new models and tools the week they land, and turn the useful ones into working systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="fields" data-nav="fields">
+    <div class="wrap">
+      <div class="sec-head" data-shape="brain">
+        <h2>AI in every field</h2>
+        <p>The same core ideas, agents, vision, language and retrieval, solve very different problems. Scroll through the five fields where I've put them to work.</p>
+      </div>
+    </div>
+
+    <div class="field" data-shape="helix">
+      <div class="wrap"><div class="col">
+        <p class="kicker">Healthcare</p>
+        <h3>Helping doctors see disease earlier</h3>
+        <p>Medical AI has to read scans, notes and records together, and it has to show its reasoning, because a clinician must be able to trust it.</p>
+        <div class="built glass">
+          <h4>What I've built</h4>
+          <ul>
+            <li>A six-agent colon cancer AI that fuses endoscopy images, clinical text and patient data, with 99.53% test accuracy</li>
+            <li>Breast cancer detection on 10,000+ patient records with SHAP explanations, 89% AUC (Open Health Systems Lab)</li>
+            <li>A multi-agent hospital simulation and a clinical NLP pipeline (Winniio, Sweden)</li>
+            <li>A registered design for an AI-based X-ray radiology machine</li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="field" data-shape="scales">
+      <div class="wrap"><div class="col">
+        <p class="kicker">Law</p>
+        <h3>Making the law easier to search</h3>
+        <p>Legal questions need exact answers with sources. Retrieval-augmented generation grounds a language model in the actual text of the law, so it cites sections instead of guessing.</p>
+        <div class="built glass">
+          <h4>What I've built</h4>
+          <ul>
+            <li>Lex-Indic-Legal: an Indian criminal law assistant covering 18 BNS sections and 51 IPC-to-BNS mappings, with voice input and a 9-page legal analysis PDF in under 60 seconds. <a href="https://github.com/Yuvraj235/Lex-Indic-legal">View on GitHub</a></li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="field" data-shape="drone">
+      <div class="wrap"><div class="col">
+        <p class="kicker">Defense and aerospace</p>
+        <h3>Making drones more accurate</h3>
+        <p>Unmanned aerial vehicles work with noisy sensors and no time to wait. AI models can raise the accuracy of what they see and how they perform in demanding defense settings.</p>
+        <div class="built glass">
+          <h4>What I've built</h4>
+          <ul>
+            <li>IEEE paper "Accuracy Enhancement of UAV using AI Models in Defense", presented at ICCETM 2025 in Sydney. <a href="https://ieeexplore.ieee.org/document/11558039">Read on IEEE Xplore</a></li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="field" data-shape="gear">
+      <div class="wrap"><div class="col">
+        <p class="kicker">Manufacturing</p>
+        <h3>Catching defects before they ship</h3>
+        <p>On a production line, a vision model has milliseconds to decide. Speed and false alarms matter as much as raw accuracy.</p>
+        <div class="built glass">
+          <h4>What I've built</h4>
+          <ul>
+            <li>Real-time metal sheet defect detection with YOLOv5 and YOLOv7 on 12,000+ annotated images: 96.8% mAP, under 50 ms per image, 22% fewer false positives than the baseline</li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="field" data-shape="voice">
+      <div class="wrap"><div class="col">
+        <p class="kicker">Business and voice</p>
+        <h3>Automating the busywork</h3>
+        <p>Agents can run multi-step workflows across a company's tools, and modern voice models can speak to customers in their own dialect.</p>
+        <div class="built glass">
+          <h4>What I've built</h4>
+          <ul>
+            <li>A full application and social media automation for Tocnis (UAE), speaking with an ElevenLabs Arabic voice in the Syrian dialect</li>
+            <li>Workflow agents connected to client databases, APIs and messaging tools, with live dashboards</li>
+            <li>3 end-to-end ML pipelines at Neurobridge Tech, 30% faster from training to production</li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="block" id="knowledge" data-shape="neural" data-nav="knowledge">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What I know about AI</h2>
+        <p>The ideas I work with every day, what they actually do, and how I've used them.</p>
+      </div>
+      <div class="kgrid">
+        <article class="kitem glass">
+          <h3>Agentic AI</h3>
+          <p>An agent breaks a goal into steps, picks a tool for each one, remembers what happened and checks its own output. I design multi-agent systems where each agent has one job and a clean handoff, like the 8+ parallel agents in my hospital simulation.</p>
+          <p class="tools">LangChain, OpenAI API, n8n, Make, MCP</p>
+        </article>
+        <article class="kitem glass">
+          <h3>LLMs and RAG</h3>
+          <p>Language models write fluently but can invent facts. Retrieval-augmented generation fixes that by finding the right passages with embeddings and vector search, then making the model answer from them.</p>
+          <p class="tools">FAISS, Pinecone, ChromaDB, Ollama, Llama 3.3 on Groq</p>
+        </article>
+        <article class="kitem glass">
+          <h3>Computer vision</h3>
+          <p>CNNs like ResNet and EfficientNet learn visual features layer by layer. Detectors like YOLO find and box every object in one pass, fast enough for a live production line.</p>
+          <p class="tools">PyTorch, OpenCV, YOLOv5, YOLOv7</p>
+        </article>
+        <article class="kitem glass">
+          <h3>Multimodal AI</h3>
+          <p>Real decisions use more than one kind of data. I give images, text and tables each their own specialist model, then fuse their outputs into one prediction.</p>
+          <p class="tools">ResNet50, EfficientNet-B4, BioBERT</p>
+        </article>
+        <article class="kitem glass">
+          <h3>Medical AI</h3>
+          <p>Medical data arrives as DICOM scans, FHIR records and free-text notes, and all of it is private. I build HIPAA-aware pipelines with a clinician kept in the loop.</p>
+          <p class="tools">DICOM, FHIR, clinical NLP, NER, X-ray and CT</p>
+        </article>
+        <article class="kitem glass">
+          <h3>Explainable AI</h3>
+          <p>A model people can't question won't get used. SHAP shows which features pushed each prediction; adding it cut clinicians' AI-review time by about 25% at OHSL.</p>
+          <p class="tools">SHAP, XGBoost</p>
+        </article>
+        <article class="kitem glass">
+          <h3>Machine learning on tables</h3>
+          <p>For tabular data, gradient-boosted trees often beat deep learning. Picking the right metric matters too: in cancer screening, missing a case costs more than a false alarm, so sensitivity counts.</p>
+          <p class="tools">scikit-learn, XGBoost, A/B testing</p>
+        </article>
+        <article class="kitem glass">
+          <h3>MLOps</h3>
+          <p>A model only helps once it runs reliably. I package models in Docker, serve them through FastAPI or gRPC, track experiments in MLflow and schedule pipelines with Airflow.</p>
+          <p class="tools">Kubernetes, CI/CD, AWS, GCP, Azure</p>
+        </article>
+        <article class="kitem glass">
+          <h3>Generative voice</h3>
+          <p>Text-to-speech models now carry emotion and regional accents. I've used them to give a brand a natural Arabic voice in the Syrian dialect for automated social content.</p>
+          <p class="tools">ElevenLabs, automation workflows</p>
+        </article>
+      </div>
+      <div class="emerging glass">
+        <h3>Emerging AI I'm exploring now</h3>
+        <p>The ideas I'm reading about, testing and building small experiments with, because they're where AI is heading next.</p>
+        <ul class="chips">
+          <li>Agent protocols and MCP</li>
+          <li>Security for AI agents</li>
+          <li>Multimodal foundation models</li>
+          <li>Small models that run locally</li>
+          <li>Real-time voice agents</li>
+          <li>Quantum machine learning</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work" data-shape="agents" data-nav="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Six agents. One diagnosis.</h2>
+        <p>My flagship project, and the clearest example of how I think about agentic AI.</p>
+      </div>
+      <article class="feature glass">
+        <div class="copy">
+          <p class="kicker">Multi-agent medical AI, 2026</p>
+          <h3>Agentic Multimodal Colon Cancer AI</h3>
+          <p>Six AI agents screen for colorectal cancer the way a clinical team reviews a case: the endoscopy image, the clinical notes and the patient's record together. ResNet50 and EfficientNet-B4 read the image, BioBERT reads the clinical text, and the pipeline fuses every view into one finding.</p>
+          <div class="metrics">
+            <div class="metric"><b>99.53%</b><span>test accuracy</span></div>
+            <div class="metric"><b>0.9946</b><span>F1 score</span></div>
+          </div>
+          <p class="note">Measured on the HyperKvasir dataset.</p>
+          <a class="repo" href="https://github.com/Yuvraj235/Agentic_Multimodal_Colon_Cancer_AI">View the code on GitHub</a>
+        </div>
+        <div class="side">
+          <div class="trace" id="trace" aria-label="Example agent run">
+            <div class="trace-head">
+              <div><strong>Example run</strong> <span class="sub">six agents</span></div>
+              <button class="replay" id="replay" type="button">Replay run</button>
+            </div>
+            <p class="trace-task">task <b>Screen colonoscopy case #0142</b></p>
+            <ol class="steps" id="steps">
+              <li class="step"><span class="n">1</span><span class="v">intake</span><span class="d">image, clinical note, record</span><span class="s">3 inputs</span></li>
+              <li class="step"><span class="n">2</span><span class="v">vision</span><span class="d">ResNet50 reads the image</span><span class="s">done</span></li>
+              <li class="step"><span class="n">3</span><span class="v">vision</span><span class="d">EfficientNet-B4 second read</span><span class="s">agrees</span></li>
+              <li class="step"><span class="n">4</span><span class="v">text</span><span class="d">BioBERT reads the note</span><span class="s">done</span></li>
+              <li class="step"><span class="n">5</span><span class="v">tabular</span><span class="d">patient record features</span><span class="s">done</span></li>
+              <li class="step"><span class="n">6</span><span class="v">fusion</span><span class="d">combine all three views</span><span class="s flag">abnormal</span></li>
+            </ol>
+            <div class="trace-result" id="result"><span>result <b>flagged for clinician review</b></span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="experience" data-shape="globe" data-nav="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Built with teams in four countries</h2>
+        <p>Remote, cross-border work in Sweden, the US, the UAE and India.</p>
+      </div>
+      <ol class="timeline">
+        <li class="role">
+          <div class="when">May 2025 to now</div>
+          <div class="body">
+            <h3>AI Engineer, Winniio AB</h3>
+            <p class="meta">Sweden, remote</p>
+            <ul>
+              <li>Architected a multi-agent autonomous hospital simulation in Python and LangChain. Parallel task scheduling cut simulation run-time by 35 to 40% across 8+ concurrent agent threads.</li>
+              <li>Built a clinical NLP pipeline that interprets doctor-patient dialogue with 90%+ NER accuracy.</li>
+              <li>Deployed an OCR module that cut document-to-record processing from hours to under 5 minutes.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="role">
+          <div class="when">2026</div>
+          <div class="body">
+            <h3>AI Agent Developer, Tocnis</h3>
+            <p class="meta">UAE, remote</p>
+            <ul>
+              <li>Delivered a full client application and social media automation with an ElevenLabs Arabic voice.</li>
+              <li>Built autonomous agents for multi-step business workflows connected to client systems.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="role">
+          <div class="when">May to Jul 2025</div>
+          <div class="body">
+            <h3>Research Intern, Open Health Systems Lab</h3>
+            <p class="meta">USA, remote</p>
+            <ul>
+              <li>Built an XGBoost breast cancer detection pipeline on 10,000+ patient records, reaching 89% AUC and 87% sensitivity.</li>
+              <li>Added SHAP explanations that cut clinicians' AI-review time by about 25%.</li>
+              <li>Curated metadata for 50,000+ healthcare records in Alation and co-authored a research paper for OHSL's global open-health data initiative.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="role">
+          <div class="when">Dec 2024 to May 2025</div>
+          <div class="body">
+            <h3>AI/ML Engineer, Neurobridge Tech</h3>
+            <p class="meta">Delhi</p>
+            <ul>
+              <li>Built 3 end-to-end ML pipelines, from data ingestion to FastAPI deployment, cutting training-to-production time by 30% and raising model accuracy by 12%.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="role">
+          <div class="when">May to Jul 2022</div>
+          <div class="body">
+            <h3>Developer Intern, VizExec Transformation</h3>
+            <p class="meta">Gurgaon</p>
+            <ul>
+              <li>Built a WebRTC video conferencing module for 1,000+ concurrent participants at under 200 ms latency, for a large-scale constituency engagement platform.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+      <ul class="edu">
+        <li class="glass"><b>M.Tech, Artificial Intelligence</b><span>Amity University, Noida</span><small>Aug 2024 to May 2026</small></li>
+        <li class="glass"><b>B.Tech, Computer Science and Engineering</b><span>Amity University, Noida</span><small>Jul 2019 to May 2023</small></li>
+        <li class="glass"><b>PR Head, Amity Data Science Club</b><span>2 years, grew membership by 40%</span><small>Also top performer, Ethical Hacking training</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="research" data-shape="ribs" data-nav="research">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Two IEEE papers and an AI X-ray machine</h2>
+        <p>Published research and a registered design across medical imaging and applied AI.</p>
+      </div>
+      <div class="rgrid">
+        <article class="rcard glass">
+          <span class="pill paper">IEEE, 2025</span>
+          <h3>AI Framework for Enhanced Detection of Colonic Abnormalities</h3>
+          <p>An AI framework for detecting abnormalities of the colon in medical images, the same problem my multi-agent colon cancer pipeline tackles.</p>
+          <a class="foot" href="https://ieeexplore.ieee.org/document/11584361">Read on IEEE Xplore</a>
+        </article>
+        <article class="rcard glass">
+          <span class="pill paper">IEEE ICCETM 2025, Sydney</span>
+          <h3>Accuracy Enhancement of UAV using AI Models in Defense</h3>
+          <p>Using AI models to improve the accuracy of unmanned aerial vehicles in defense settings. Presented at ICCETM 2025 in Sydney, Australia.</p>
+          <a class="foot" href="https://ieeexplore.ieee.org/document/11558039">Read on IEEE Xplore</a>
+        </article>
+        <article class="rcard glass">
+          <span class="pill ip">Design patent</span>
+          <h3>Artificial Intelligence Based Medical X-Ray Radiology Machine</h3>
+          <p>Registered Design No. 435775-001, class 24-01, under India's Designs Act, 2000. Co-designed with Prof. Dr. Shailendra Narayan Singh, Hrishita Panjetha, Immanuel Joseph and Rishabh Upadhyay.</p>
+          <p class="foot">Registered 26 Oct 2024, certificate issued Jan 2025</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="speaking" data-shape="brain" data-nav="research">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Speaking about where AI is heading</h2>
+      </div>
+      <article class="talk glass">
+        <div class="date"><div class="d">24</div><div class="m">July 2026</div></div>
+        <div>
+          <h3>Agentic AI in Healthcare: The Future of Intelligent Medical Systems</h3>
+          <p>Guest lecture at Bennett University, AI Seminar Hall, Greater Noida. How autonomous agents can read records, coordinate care tasks and support clinical decisions, and where they still need a human in the loop.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="method" data-shape="agents" data-nav="research">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>How I build an agent, in any field</h2>
+        <p>The same five steps, whether the agent screens a scan, answers a legal question or posts for a brand.</p>
+      </div>
+      <ol class="method">
+        <li><h3>Start from the cost of a mistake</h3><p>Before picking a model, I write down what a wrong answer costs. A missed tumour needs far more checking than a late social post.</p></li>
+        <li><h3>Ground it in the real record</h3><p>Agents read from the source of truth, such as patient records, the text of the law or a client's database, so every answer traces back to something real.</p></li>
+        <li><h3>Give it the fewest tools that work</h3><p>One agent holding database write, shell and network access at once is a security risk. I split permissions across narrow tools, each with only what it needs.</p></li>
+        <li><h3>Check before it acts</h3><p>A second model or a person reviews anything that matters, and the agent says so when it can't verify a result.</p></li>
+        <li><h3>Test on data it hasn't seen, then ship</h3><p>Measure on held-out cases, deploy behind an API, watch real usage and tune.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" data-shape="wave" data-nav="contact">
+    <div class="wrap">
+      <h2>Building something with AI? Let's talk.</h2>
+      <p class="lede">I'm open to remote AI engineering roles with teams anywhere, and to project work on AI agents in any field.</p>
+      <div class="row">
+        <span class="email" id="email">ps9359490@gmail.com</span>
+        <button class="btn primary" id="copy" type="button">Copy email</button>
+      </div>
+      <p class="copied" id="copied" aria-live="polite"></p>
+      <div class="links">
+        <a class="btn" href="https://www.linkedin.com/in/yuvrajpratapsingh23">LinkedIn</a>
+        <a class="btn" href="https://github.com/Yuvraj235">GitHub</a>
+        <a class="btn" href="Yuvraj_Pratap_Singh_Resume.pdf" download>Download resume (PDF)</a>
+        <a class="btn" href="mailto:ps9359490@gmail.com">Open in mail app</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Yuvraj Pratap Singh</span>
+    <a href="#home">Back to top</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = String(new Date().getFullYear());
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Side rail: highlight the section in view ---------- */
+  var railLinks = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  if ('IntersectionObserver' in window) {
+    var navIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var key = e.target.getAttribute('data-nav');
+        railLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-for') === key); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('[data-nav]').forEach(function (s) { navIO.observe(s); });
+  }
+
+  /* ---------- Agent trace ---------- */
+  var steps = Array.prototype.slice.call(document.querySelectorAll('#steps .step'));
+  var result = document.getElementById('result');
+  var timers = [];
+  function runTrace() {
+    timers.forEach(clearTimeout); timers = [];
+    if (reduce) { steps.forEach(function (s) { s.classList.remove('pending', 'running'); }); result.classList.remove('pending'); return; }
+    steps.forEach(function (s) { s.classList.add('pending'); s.classList.remove('running'); });
+    result.classList.add('pending');
+    var t = 250;
+    steps.forEach(function (s) {
+      timers.push(setTimeout(function () { s.classList.remove('pending'); s.classList.add('running'); }, t));
+      t += 520;
+      timers.push(setTimeout(function () { s.classList.remove('running'); }, t));
+    });
+    timers.push(setTimeout(function () { result.classList.remove('pending'); }, t + 120));
+  }
+  document.getElementById('replay').addEventListener('click', runTrace);
+  if ('IntersectionObserver' in window) {
+    var traceIO = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { runTrace(); traceIO.disconnect(); }
+    }, { threshold: 0.5 });
+    traceIO.observe(document.getElementById('trace'));
+  }
+
+  /* ---------- Copy email ---------- */
+  var msg = document.getElementById('copied');
+  document.getElementById('copy').addEventListener('click', function () {
+    var addr = document.getElementById('email').textContent.trim();
+    function ok() { msg.textContent = 'Email copied: ' + addr; }
+    function fail() { msg.textContent = 'Copy is blocked here. Select the address above to copy it.'; }
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(addr).then(ok, fail);
+      else fail();
+    } catch (e) { fail(); }
+  });
+
+  /* ---------- Point cloud ---------- */
+  var host = document.getElementById('field');
+  if (!window.THREE || !host) return;
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, powerPreference: 'high-performance' });
+  } catch (e) { return; }
+
+  var small = Math.min(window.innerWidth, window.innerHeight) < 700;
+  var N = small ? 12000 : 24000;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.5 : 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0);
+  host.appendChild(renderer.domElement);
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 4.6;
+
+  var seed = 11;
+  function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+  function gauss() { return (rnd() + rnd() + rnd() - 1.5) / 1.5; }
+  function unit() { var u = rnd() * 2 - 1, t = rnd() * Math.PI * 2, s = Math.sqrt(1 - u * u); return [s * Math.cos(t), u, s * Math.sin(t)]; }
+  function hex(h) { var c = new THREE.Color(h); return [c.r, c.g, c.b]; }
+  function mix(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+  function sc(a, k) { return [a[0] * k, a[1] * k, a[2] * k]; }
+  var C = { eosin: hex('#FF5C8A'), hema: hex('#A796FF'), xray: hex('#7FE3EA'), bone: hex('#E6F4FF'), dim: hex('#5B4F86'), gold: hex('#F2C46D') };
+
+  /* Shapes. Each returns [x, y, z, color] for particle i. */
+  var S = {};
+  S.brain = function (i) {
+    var f = i / N;
+    if (f < 0.88) {
+      var d = unit(), s = d[0] < 0 ? -1 : 1;
+      var x = Math.abs(d[0]) * 0.82 * s, y = d[1] * 0.78, z = d[2] * 1.12;
+      var g = Math.sin(x * 11 + 1.3) * Math.sin(y * 12) * Math.sin(z * 10 + 0.7) + 0.5 * Math.sin((x + z) * 17) * Math.sin(y * 15 + 2);
+      var k = 1 + 0.055 * g;
+      x = x * k + s * 0.06; y = y * k; z = z * k;
+      if (y < -0.35) y = -0.35 + (y + 0.35) * 0.45;
+      y = Math.round(y * 34) / 34;
+      var b = 0.5 + 0.5 * Math.max(0, Math.min(1, (g + 1.2) / 2.4));
+      return [x, y + 0.1, z, sc(C.eosin, b)];
+    } else if (f < 0.96) {
+      var e = unit();
+      return [e[0] * 0.42, -0.36 + e[1] * 0.2, -0.7 + e[2] * 0.28, sc(C.eosin, 0.6)];
+    }
+    var a = rnd() * Math.PI * 2, h = rnd();
+    return [Math.cos(a) * 0.09, -0.32 - h * 0.42, -0.38 + Math.sin(a) * 0.09 - h * 0.18, sc(C.hema, 0.7)];
+  };
+  S.helix = function (i) {
+    var f = i / N, H = 1.35, x, y, z, col;
+    if (f < 0.62) {
+      var t = rnd() * 2 - 1, s = rnd() < 0.5 ? 0 : Math.PI, a = t * Math.PI * 3 + s;
+      x = Math.cos(a) * 0.55 + gauss() * 0.035; y = t * H + gauss() * 0.035; z = Math.sin(a) * 0.55 + gauss() * 0.035;
+      col = s ? C.hema : mix(C.hema, C.eosin, 0.3);
+    } else {
+      var k = Math.floor(rnd() * 28), t2 = (k + 0.5) / 28 * 2 - 1, a2 = t2 * Math.PI * 3, u = rnd() * 2 - 1;
+      x = Math.cos(a2) * 0.55 * u + gauss() * 0.012; y = t2 * H + gauss() * 0.012; z = Math.sin(a2) * 0.55 * u + gauss() * 0.012;
+      col = sc(k % 2 ? C.eosin : C.xray, 0.85);
+    }
+    var r = 0.35, cx = Math.cos(r), sx = Math.sin(r);
+    return [x * cx - y * sx, x * sx + y * cx, z, col];
+  };
+  S.scales = function (i) {
+    var f = i / N, gold = C.gold, tilt = 0.08;
+    if (f < 0.12) { var a = rnd() * Math.PI * 2; return [Math.cos(a) * 0.05, -1.05 + rnd() * 1.95, Math.sin(a) * 0.05, gold]; }
+    if (f < 0.24) { var a2 = rnd() * Math.PI * 2, r = Math.sqrt(rnd()) * 0.55; return [Math.cos(a2) * r, -1.08 + (rnd() < 0.5 ? 0 : 0.06), Math.sin(a2) * r, sc(gold, 0.75)]; }
+    if (f < 0.36) { var x = rnd() * 2.1 - 1.05; return [x, 0.9 + x * tilt + gauss() * 0.012, gauss() * 0.012, gold]; }
+    var s = rnd() < 0.5 ? -1 : 1, cx = s * 1.0, topY = 0.9 + cx * tilt, panY = -0.05 + cx * tilt;
+    if (f < 0.6) {
+      var k = Math.floor(rnd() * 3), ang = k / 3 * Math.PI * 2, t = rnd();
+      var rx = cx + Math.cos(ang) * 0.36, rz = Math.sin(ang) * 0.36;
+      return [cx + (rx - cx) * t, topY + (panY - topY) * t, rz * t, sc(gold, 0.7)];
+    }
+    var d = unit(); if (d[1] > 0) d[1] = -d[1];
+    return [cx + d[0] * 0.38, panY + d[1] * 0.16, d[2] * 0.38, mix(gold, C.eosin, 0.25)];
+  };
+  S.drone = function (i) {
+    var f = i / N, cy = C.xray, arms = [[1, 1], [1, -1], [-1, 1], [-1, -1]];
+    if (f < 0.18) { var d = unit(); return [d[0] * 0.36, d[1] * 0.12, d[2] * 0.26, cy]; }
+    if (f < 0.36) { var a = arms[i % 4], t = rnd(); return [a[0] * 0.85 * t + gauss() * 0.02, 0.02 + gauss() * 0.015, a[1] * 0.85 * t + gauss() * 0.02, sc(cy, 0.75)]; }
+    if (f < 0.7) {
+      var a2 = arms[i % 4], ang = rnd() * Math.PI * 2, rim = rnd() < 0.6, r = rim ? 0.36 : 0.36 * Math.sqrt(rnd());
+      return [a2[0] * 0.85 + Math.cos(ang) * r, 0.16, a2[1] * 0.85 + Math.sin(ang) * r, rim ? cy : sc(cy, 0.4)];
+    }
+    if (f < 0.8) { var a3 = arms[i % 4]; return [a3[0] * 0.85 + gauss() * 0.03, 0.02 + rnd() * 0.14, a3[1] * 0.85 + gauss() * 0.03, cy]; }
+    if (f < 0.88) { var d2 = unit(); return [d2[0] * 0.1, -0.18 + d2[1] * 0.1, 0.2 + d2[2] * 0.1, C.eosin]; }
+    var s = rnd() < 0.5 ? -1 : 1, t2 = rnd();
+    if (rnd() < 0.6) return [s * 0.25, -0.1 - t2 * 0.32, (rnd() * 2 - 1) * 0.02, sc(cy, 0.7)];
+    return [s * 0.25, -0.42, t2 * 0.6 - 0.3, sc(cy, 0.7)];
+  };
+  S.gear = function (i) {
+    var f = i / N, steel = mix(C.xray, C.bone, 0.4), th = rnd() * Math.PI * 2;
+    var tooth = Math.sin(th * 14) > 0.15 ? 1 : 0, R = 1.0 + 0.16 * tooth, rin = 0.32;
+    if (f < 0.55) {
+      var r = Math.sqrt(rin * rin + rnd() * (R * R - rin * rin)), z = rnd() < 0.5 ? -0.14 : 0.14;
+      return [Math.cos(th) * r, Math.sin(th) * r, z, r > R - 0.03 ? C.eosin : sc(steel, 0.5 + 0.5 * (r / R))];
+    }
+    if (f < 0.85) { return [Math.cos(th) * R, Math.sin(th) * R, rnd() * 0.28 - 0.14, tooth ? C.eosin : steel]; }
+    return [Math.cos(th) * rin, Math.sin(th) * rin, rnd() * 0.28 - 0.14, steel];
+  };
+  S.voice = function (i) {
+    var bars = 72, k = i % bars, a = k / bars * Math.PI * 2;
+    var h = 0.12 + 0.75 * Math.abs(Math.sin(k * 1.7) * Math.cos(k * 0.53)) * (0.55 + 0.45 * Math.sin(a * 3 + 1));
+    var y = (rnd() * 2 - 1) * h, r = 1.05 + gauss() * 0.015;
+    return [Math.cos(a) * r, y, Math.sin(a) * r, mix(C.hema, C.eosin, Math.min(1, Math.abs(y) * 1.6))];
+  };
+  var NL = (function () {
+    var spec = [[-1.3, 8], [-0.45, 14], [0.45, 14], [1.3, 5]], out = [];
+    spec.forEach(function (l) {
+      var nodes = [];
+      for (var j = 0; j < l[1]; j++) {
+        var ang = j / l[1] * Math.PI * 2, rad = 0.35 + 0.55 * Math.sqrt(l[1] / 14);
+        nodes.push([l[0], Math.cos(ang) * rad * (j % 2 ? 0.75 : 1), Math.sin(ang) * rad * (j % 2 ? 0.75 : 1)]);
+      }
+      out.push(nodes);
+    });
+    return out;
+  })();
+  S.neural = function (i) {
+    var f = i / N;
+    if (f < 0.42) {
+      var L = i % 4, layer = NL[L], n = layer[Math.floor(rnd() * layer.length)], d = unit();
+      return [n[0] + d[0] * 0.06, n[1] + d[1] * 0.06, n[2] + d[2] * 0.06, mix(C.hema, C.eosin, L / 3)];
+    }
+    var L2 = Math.floor(rnd() * 3), A = NL[L2][Math.floor(rnd() * NL[L2].length)], B = NL[L2 + 1][Math.floor(rnd() * NL[L2 + 1].length)], t = rnd();
+    return [A[0] + (B[0] - A[0]) * t, A[1] + (B[1] - A[1]) * t, A[2] + (B[2] - A[2]) * t, sc(mix(C.dim, C.hema, t), 0.7)];
+  };
+  var AG = (function () { var a = []; for (var k = 0; k < 5; k++) { var g = k / 5 * Math.PI * 2 - Math.PI / 2; a.push([Math.cos(g) * 1.15, Math.sin(g) * 0.95, Math.sin(g) * 0.45]); } return a; })();
+  S.agents = function (i) {
+    var f = i / N;
+    if (f < 0.5) { var n = AG[i % 5], d = unit(); return [n[0] + d[0] * 0.2, n[1] + d[1] * 0.2, n[2] + d[2] * 0.2, C.hema]; }
+    if (f < 0.66) { var d2 = unit(); return [d2[0] * 0.3, d2[1] * 0.3, d2[2] * 0.3, C.eosin]; }
+    var k = Math.floor(rnd() * 10), a, b;
+    if (k < 5) { a = AG[k]; b = [0, 0, 0]; } else { a = AG[k - 5]; b = AG[(k - 4) % 5]; }
+    var t = rnd(), j = 0.012;
+    return [a[0] + (b[0] - a[0]) * t + gauss() * j, a[1] + (b[1] - a[1]) * t + gauss() * j, a[2] + (b[2] - a[2]) * t + gauss() * j, mix(C.dim, k < 5 ? C.eosin : C.hema, 0.4 + 0.4 * Math.sin(t * Math.PI))];
+  };
+  function ll(lat, lon, r) { var la = lat * Math.PI / 180, lo = lon * Math.PI / 180; return [r * Math.cos(la) * Math.cos(lo), r * Math.sin(la), -r * Math.cos(la) * Math.sin(lo)]; }
+  var PLACES = [[28.5, 77.3], [59.3, 18.1], [39.0, -98.0], [25.2, 55.3]];
+  S.globe = function (i) {
+    var f = i / N, R = 1.1;
+    if (f < 0.62) {
+      var p;
+      if (rnd() < 0.5) p = ll((Math.floor(rnd() * 11) - 5) * 15, rnd() * 360, R);
+      else p = ll(rnd() * 180 - 90, Math.floor(rnd() * 18) * 20, R);
+      return [p[0], p[1], p[2], sc(C.xray, 0.42)];
+    }
+    if (f < 0.8) { var pl = PLACES[i % 4], d = unit(), c = ll(pl[0], pl[1], R); return [c[0] + d[0] * 0.07, c[1] + d[1] * 0.07, c[2] + d[2] * 0.07, C.eosin]; }
+    var to = PLACES[1 + (i % 3)], A = ll(28.5, 77.3, 1), B = ll(to[0], to[1], 1), t = rnd();
+    var m = [A[0] + (B[0] - A[0]) * t, A[1] + (B[1] - A[1]) * t, A[2] + (B[2] - A[2]) * t];
+    var L = Math.sqrt(m[0] * m[0] + m[1] * m[1] + m[2] * m[2]) || 1, hh = R * (1 + 0.28 * Math.sin(Math.PI * t));
+    return [m[0] / L * hh, m[1] / L * hh, m[2] / L * hh, mix(C.hema, C.eosin, t)];
+  };
+  S.ribs = function (i) {
+    var f = i / N;
+    if (f < 0.16) { var y = rnd() * 2.3 - 1.2, seg = Math.round(y * 9) / 9, d = unit(), r = 0.07 + 0.03 * Math.cos((y - seg) * 9 * Math.PI); return [d[0] * r, y, -0.5 + d[2] * r, C.bone]; }
+    if (f < 0.2) { return [gauss() * 0.03, 0.85 - rnd() * 0.75, 0.52 + gauss() * 0.02, C.bone]; }
+    if (f < 0.25) { var s = rnd() < 0.5 ? -1 : 1, t = rnd(); return [s * (0.05 + t * 0.62), 1.0 + 0.08 * Math.sin(t * Math.PI) - t * 0.05, 0.45 - t * 0.35 + gauss() * 0.015, C.bone]; }
+    var k = Math.floor(rnd() * 10), s2 = rnd() < 0.5 ? -1 : 1, t2 = rnd();
+    var y0 = 0.82 - k * 0.17, w = 0.55 + 0.42 * Math.sin(Math.PI * (k + 2.5) / 13);
+    var reach = k < 7 ? 0.8 : k < 8 ? 0.62 : 0.42;
+    var ang = -Math.PI / 2 + t2 * Math.PI * reach, j = 0.02;
+    return [s2 * w * Math.cos(ang) + gauss() * j, y0 - 0.34 * t2 + 0.05 * Math.sin(t2 * Math.PI) + gauss() * j, 0.46 * Math.sin(ang) + gauss() * j, mix(C.xray, C.bone, 0.5 * rnd())];
+  };
+  S.wave = function () {
+    var x = Math.round((rnd() * 3.6 - 1.8) * 40) / 40, z = Math.round((rnd() * 3.6 - 1.8) * 40) / 40, r = Math.sqrt(x * x + z * z);
+    return [x, 0.24 * Math.cos(r * 5) * Math.exp(-r * 0.6) - 0.35, z, mix(C.eosin, C.hema, Math.min(1, r / 1.8))];
+  };
+
+  var cache = {};
+  function build(name) {
+    if (cache[name]) return cache[name];
+    if (!S[name]) return null;
+    var p = new Float32Array(N * 3), c = new Float32Array(N * 3);
+    for (var i = 0; i < N; i++) {
+      var r = S[name](i), i3 = i * 3;
+      p[i3] = r[0]; p[i3 + 1] = r[1]; p[i3 + 2] = r[2];
+      c[i3] = r[3][0]; c[i3 + 1] = r[3][1]; c[i3 + 2] = r[3][2];
+    }
+    return (cache[name] = { p: p, c: c });
+  }
+
+  /* Particles start scattered, then gather into the first shape */
+  var pos = new Float32Array(N * 3), col = new Float32Array(N * 3), fromP = new Float32Array(N * 3), fromC = new Float32Array(N * 3);
+  var delay = new Float32Array(N), kick = new Float32Array(N * 3);
+  for (var i = 0; i < N; i++) {
+    var d = unit(), r = 2.4 + rnd() * 3, i3 = i * 3;
+    pos[i3] = d[0] * r; pos[i3 + 1] = d[1] * r; pos[i3 + 2] = d[2] * r - 1;
+    col[i3] = C.dim[0] * 0.5; col[i3 + 1] = C.dim[1] * 0.5; col[i3 + 2] = C.dim[2] * 0.5;
+    delay[i] = rnd();
+    var k = unit(); kick[i3] = k[0]; kick[i3 + 1] = k[1]; kick[i3 + 2] = k[2];
+  }
+  var geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+
+  var dotCanvas = document.createElement('canvas'); dotCanvas.width = dotCanvas.height = 64;
+  var g2 = dotCanvas.getContext('2d'), grad = g2.createRadialGradient(32, 32, 0, 32, 32, 32);
+  grad.addColorStop(0, 'rgba(255,255,255,1)'); grad.addColorStop(0.35, 'rgba(255,255,255,0.85)'); grad.addColorStop(1, 'rgba(255,255,255,0)');
+  g2.fillStyle = grad; g2.fillRect(0, 0, 64, 64);
+  var tex = new THREE.CanvasTexture(dotCanvas);
+
+  var mat = new THREE.PointsMaterial({ size: small ? 0.032 : 0.026, map: tex, vertexColors: true, transparent: true, opacity: 0.95, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+  var cloud = new THREE.Points(geo, mat);
+  var spin = new THREE.Group(), tilt = new THREE.Group(), holder = new THREE.Group();
+  spin.add(cloud); tilt.add(spin); holder.add(tilt); scene.add(holder);
+
+  /* Faint specks in the distance */
+  var starN = small ? 350 : 700, sp = new Float32Array(starN * 3);
+  for (var s = 0; s < starN; s++) { sp[s * 3] = (rnd() * 2 - 1) * 9; sp[s * 3 + 1] = (rnd() * 2 - 1) * 6; sp[s * 3 + 2] = -2 - rnd() * 6; }
+  var sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.BufferAttribute(sp, 3));
+  scene.add(new THREE.Points(sg, new THREE.PointsMaterial({ size: 0.03, map: tex, color: 0x6f6596, transparent: true, opacity: 0.6, depthWrite: false })));
+
+  var target = null, current = '', t0 = 0, morphing = false, DUR = 1800, dirty = true;
+  function setShape(name) {
+    if (!name || name === current) return;
+    var shape = build(name); if (!shape) return;
+    current = name; target = shape;
+    if (reduce) { pos.set(shape.p); col.set(shape.c); morphing = false; flag(); return; }
+    fromP.set(pos); fromC.set(col); t0 = performance.now(); morphing = true;
+  }
+  function flag() { geo.attributes.position.needsUpdate = true; geo.attributes.color.needsUpdate = true; dirty = true; }
+  function morph(now) {
+    var el = (now - t0) / DUR, done = true, tp = target.p, tc = target.c;
+    for (var i = 0; i < N; i++) {
+      var p = (el - delay[i] * 0.35) / 0.65;
+      if (p < 1) done = false;
+      p = p < 0 ? 0 : p > 1 ? 1 : p;
+      var e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2, burst = Math.sin(Math.PI * e) * 0.4, i3 = i * 3;
+      pos[i3] = fromP[i3] + (tp[i3] - fromP[i3]) * e + kick[i3] * burst;
+      pos[i3 + 1] = fromP[i3 + 1] + (tp[i3 + 1] - fromP[i3 + 1]) * e + kick[i3 + 1] * burst;
+      pos[i3 + 2] = fromP[i3 + 2] + (tp[i3 + 2] - fromP[i3 + 2]) * e + kick[i3 + 2] * burst;
+      col[i3] = fromC[i3] + (tc[i3] - fromC[i3]) * e;
+      col[i3 + 1] = fromC[i3 + 1] + (tc[i3 + 1] - fromC[i3 + 1]) * e;
+      col[i3 + 2] = fromC[i3 + 2] + (tc[i3 + 2] - fromC[i3 + 2]) * e;
+    }
+    flag();
+    if (done) morphing = false;
+  }
+
+  function layout() {
+    var w = window.innerWidth, h = window.innerHeight;
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+    var halfH = Math.tan(22.5 * Math.PI / 180) * camera.position.z, halfW = halfH * camera.aspect, wide = w >= 900;
+    holder.position.set(wide ? halfW * 0.55 : 0, wide ? 0 : halfH * 0.2, 0);
+    var k = wide ? Math.min(1.05, halfW * 0.34) : Math.min(0.95, halfW / 1.35);
+    holder.scale.set(k, k, k);
+    mat.opacity = wide ? 0.95 : 0.6;
+    dirty = true;
+  }
+  window.addEventListener('resize', layout);
+  layout();
+
+  var mx = 0, my = 0;
+  if (!reduce) {
+    window.addEventListener('pointermove', function (e) {
+      mx = (e.clientX / window.innerWidth) * 2 - 1;
+      my = (e.clientY / window.innerHeight) * 2 - 1;
+    }, { passive: true });
+  }
+
+  function loop(now) {
+    if (morphing) morph(now);
+    if (!reduce) {
+      spin.rotation.y += 0.0024;
+      tilt.rotation.x += (my * 0.22 - tilt.rotation.x) * 0.04;
+      tilt.rotation.z += (-mx * 0.12 - tilt.rotation.z) * 0.04;
+      dirty = true;
+    }
+    if (dirty) { renderer.render(scene, camera); dirty = false; }
+    requestAnimationFrame(loop);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var shapeIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setShape(e.target.getAttribute('data-shape')); });
+    }, { rootMargin: '-42% 0px -50% 0px' });
+    document.querySelectorAll('[data-shape]').forEach(function (el) { shapeIO.observe(el); });
+  }
+  setShape('brain');
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
