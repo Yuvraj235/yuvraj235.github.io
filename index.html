@@ -8,25 +8,25 @@
 <meta property="og:title" content="Yuvraj Pratap Singh, AI Engineer">
 <meta property="og:description" content="AI engineer who loves emerging AI and builds it into every field: healthcare, law, defense, manufacturing and business.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0D0A15">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230D0A15'/%3E%3Cg fill='%23FF5C8A'%3E%3Ccircle cx='4' cy='4' r='1.3'/%3E%3Ccircle cx='8' cy='4' r='1.3'/%3E%3Ccircle cx='12' cy='4' r='1.3'/%3E%3Ccircle cx='4' cy='8' r='1.3'/%3E%3Ccircle cx='8' cy='8' r='1.3'/%3E%3Ccircle cx='12' cy='8' r='1.3'/%3E%3Ccircle cx='4' cy='12' r='1.3'/%3E%3Ccircle cx='8' cy='12' r='1.3'/%3E%3Ccircle cx='12' cy='12' r='1.3'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="theme-color" content="#0A0C11">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%230A0C11'/%3E%3Cg fill='%23F2B35B'%3E%3Ccircle cx='4' cy='4' r='1.3'/%3E%3Ccircle cx='8' cy='4' r='1.3'/%3E%3Ccircle cx='12' cy='4' r='1.3'/%3E%3Ccircle cx='4' cy='8' r='1.3'/%3E%3Ccircle cx='8' cy='8' r='1.3'/%3E%3Ccircle cx='12' cy='8' r='1.3'/%3E%3Ccircle cx='4' cy='12' r='1.3'/%3E%3Ccircle cx='8' cy='12' r='1.3'/%3E%3Ccircle cx='12' cy='12' r='1.3'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-/* One dark world: a live point cloud behind the page, glowing in stain pink and violet.
+/* One dark world: a quiet silver point cloud behind the page, with a single amber accent.
    Layout: left-aligned text column over the cloud; the cloud morphs per section on the right. */
 :root {
-  --bg: #0D0A15;
-  --glass: rgba(24, 19, 38, 0.74);
-  --solid: #191428;
-  --ink: #EFEBF7;
-  --muted: #A9A1BE;
-  --line: rgba(236, 230, 255, 0.13);
-  --eosin: #FF5C8A;
-  --hema: #A796FF;
-  --xray: #7FE3EA;
-  --ok: #4ADE9A;
+  --bg: #0A0C11;
+  --glass: rgba(17, 20, 28, 0.74);
+  --solid: #141822;
+  --ink: #EDF0F5;
+  --muted: #9AA3B4;
+  --line: rgba(220, 228, 245, 0.12);
+  --eosin: #F2B35B;
+  --hema: #8FB4FF;
+  --xray: #A9C4E8;
+  --ok: #5FD39A;
   --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -59,9 +59,9 @@ ul, ol { margin: 0; padding: 0; }
 #field canvas { display: block; width: 100%; height: 100%; }
 .scrim {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background: linear-gradient(90deg, rgba(13,10,21,.92) 0%, rgba(13,10,21,.78) 42%, rgba(13,10,21,.3) 66%, rgba(13,10,21,0) 86%);
+  background: linear-gradient(90deg, rgba(10,12,17,.92) 0%, rgba(10,12,17,.78) 42%, rgba(10,12,17,.3) 66%, rgba(10,12,17,0) 86%);
 }
-@media (max-width: 899px) { .scrim { background: rgba(13,10,21,.5); } }
+@media (max-width: 899px) { .scrim { background: rgba(10,12,17,.62); } }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
 main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
@@ -69,7 +69,7 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
 /* Top bar */
 .top {
   position: sticky; top: 0; z-index: 10;
-  background: rgba(13, 10, 21, 0.62);
+  background: rgba(10, 12, 17, 0.62);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -77,13 +77,13 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
 .top .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 62px; padding: 0 clamp(16px, 3vw, 32px); }
 .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-size: 1.2rem; letter-spacing: -0.01em; }
 .dots { width: 20px; height: 20px; background-image: radial-gradient(circle, var(--eosin) 1.3px, transparent 1.6px); background-size: 5px 5px; }
-.logo .a { color: var(--eosin); font-weight: 500; }
-.logo .b { color: var(--hema); font-weight: 300; }
+.logo .a { color: var(--ink); font-weight: 600; }
+.logo .b { color: var(--muted); font-weight: 300; }
 .nav { display: flex; gap: 22px; align-items: center; font-family: var(--display); font-size: 0.95rem; }
 .nav a { color: var(--muted); text-decoration: none; }
 .nav a:hover { color: var(--ink); }
 .nav .btn-sm { color: var(--bg); background: var(--ink); padding: 7px 15px; border-radius: 999px; font-weight: 600; }
-.nav .btn-sm:hover { background: var(--eosin); color: #fff; }
+.nav .btn-sm:hover { background: var(--eosin); color: #1A1406; }
 @media (max-width: 760px), (min-width: 1200px) { .nav .mid { display: none; } }
 
 /* Side rail, like a scanner index */
@@ -101,6 +101,7 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
 /* Hero */
 .hero { min-height: min(92vh, 880px); display: flex; align-items: center; padding: clamp(56px, 9vw, 110px) 0 clamp(56px, 7vw, 80px); }
 .hero .wrap, .field .wrap { width: 100%; }
+@media (max-width: 899px) { .hero { min-height: 0; padding-top: 64px; } }
 .hero .col { max-width: 620px; }
 .status {
   display: inline-flex; align-items: center; gap: 10px;
@@ -115,9 +116,7 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
   font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; letter-spacing: -0.03em;
 }
 .name span { display: block; }
-.name span:nth-child(2) { color: var(--hema); }
-.name span:nth-child(3) { color: var(--eosin); }
-.role-title { margin-top: 16px; font-family: var(--display); font-weight: 600; font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--ink); }
+.role-title { margin-top: 16px; font-family: var(--display); font-weight: 600; font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--eosin); }
 .statement { margin-top: 18px; font-family: var(--display); font-weight: 300; font-size: clamp(1.35rem, 2.7vw, 1.95rem); line-height: 1.22; letter-spacing: -0.01em; max-width: 22em; }
 .lede { margin-top: 18px; color: var(--muted); font-size: 1.08rem; max-width: 36em; }
 .ctas { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
@@ -128,7 +127,7 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
   border: 1.5px solid var(--ink); color: var(--ink); background: transparent;
 }
 .btn:hover { background: var(--ink); color: var(--bg); }
-.btn.primary { background: var(--eosin); border-color: var(--eosin); color: #fff; }
+.btn.primary { background: var(--eosin); border-color: var(--eosin); color: #1A1406; }
 .btn.primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 .hero-links { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--display); font-size: 0.95rem; }
 .hero-links a { color: var(--ink); text-decoration-color: var(--eosin); text-decoration-thickness: 2px; }
@@ -188,7 +187,7 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
 .emerging h3 { font-size: 1.25rem; font-weight: 700; }
 .emerging > p { margin-top: 8px; color: var(--muted); max-width: 44em; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; list-style: none; }
-.chips li { font-family: var(--display); font-size: 0.88rem; padding: 6px 13px; border-radius: 999px; background: rgba(167,150,255,.14); color: var(--hema); border: 1px solid rgba(167,150,255,.25); }
+.chips li { font-family: var(--display); font-size: 0.88rem; padding: 6px 13px; border-radius: 999px; background: rgba(143,180,255,.14); color: var(--hema); border: 1px solid rgba(143,180,255,.25); }
 
 /* Flagship project */
 .feature { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); border-radius: 22px; overflow: hidden; }
@@ -203,15 +202,15 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
 .metric span { font-family: var(--display); font-size: 0.85rem; color: var(--muted); }
 .note { margin-top: 10px; font-family: var(--display); font-size: 0.85rem; color: var(--muted); }
 .repo { display: inline-block; margin-top: 18px; font-family: var(--display); font-weight: 600; }
-.feature .side { border-left: 1px solid var(--line); padding: clamp(16px, 3vw, 28px); display: flex; align-items: center; background: rgba(13,10,21,.45); }
+.feature .side { border-left: 1px solid var(--line); padding: clamp(16px, 3vw, 28px); display: flex; align-items: center; background: rgba(10,12,17,.45); }
 @media (max-width: 900px) { .feature .side { border-left: 0; border-top: 1px solid var(--line); } }
 
 /* Agent trace */
 .trace { width: 100%; background: var(--solid); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; }
 .trace-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 0.88rem; }
 .trace-head .sub { color: var(--muted); }
-.replay { font-family: var(--display); font-size: 0.82rem; font-weight: 600; color: var(--hema); background: rgba(167,150,255,.14); border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
-.replay:hover { color: #fff; background: var(--hema); }
+.replay { font-family: var(--display); font-size: 0.82rem; font-weight: 600; color: var(--hema); background: rgba(143,180,255,.14); border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+.replay:hover { color: #0A0C11; background: var(--hema); }
 .trace-task { padding: 14px 16px 6px; color: var(--muted); }
 .trace-task b { color: var(--ink); font-weight: 600; }
 .steps { list-style: none; padding: 6px 8px 10px; }
@@ -223,9 +222,9 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
 .step .s.flag { color: var(--eosin); }
 .step.pending { opacity: .4; }
 .step.pending .s { color: var(--muted); }
-.step.running { background: rgba(255,92,138,.14); opacity: 1; }
+.step.running { background: rgba(242,179,91,.14); opacity: 1; }
 .step.running .s { color: var(--eosin); }
-.trace-result { margin: 0 16px 16px; padding: 12px 14px; border-radius: 12px; background: rgba(167,150,255,.14); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; transition: opacity .3s ease; }
+.trace-result { margin: 0 16px 16px; padding: 12px 14px; border-radius: 12px; background: rgba(143,180,255,.14); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; transition: opacity .3s ease; }
 .trace-result.pending { opacity: .4; }
 .trace-result b { color: var(--hema); }
 @media (max-width: 420px) {
@@ -258,8 +257,8 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
 @media (max-width: 900px) { .rgrid { grid-template-columns: 1fr; } }
 .rcard { border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
 .pill { align-self: flex-start; font-family: var(--display); font-weight: 600; font-size: 0.8rem; padding: 4px 10px; border-radius: 999px; }
-.pill.paper { background: rgba(255,92,138,.16); color: var(--eosin); }
-.pill.ip { background: rgba(127,227,234,.14); color: var(--xray); }
+.pill.paper { background: rgba(242,179,91,.16); color: var(--eosin); }
+.pill.ip { background: rgba(169,196,232,.14); color: var(--xray); }
 .rcard h3 { font-size: 1.14rem; font-weight: 700; line-height: 1.28; }
 .rcard p { color: var(--muted); font-size: 0.97rem; }
 .rcard .foot { margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line); font-family: var(--display); font-size: 0.9rem; }
@@ -292,9 +291,36 @@ main, footer { position: relative; z-index: 1; padding-left: var(--rail); }
 .email { font-family: var(--display); font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 600; overflow-wrap: anywhere; }
 .copied { font-family: var(--display); font-size: 0.9rem; color: var(--ok); min-height: 1.4em; margin-top: 10px; }
 .links { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; }
-footer { border-top: 1px solid var(--line); padding: 22px 0 32px; color: var(--muted); font-family: var(--display); font-size: 0.9rem; background: rgba(13,10,21,.7); }
+footer { border-top: 1px solid var(--line); padding: 22px 0 32px; color: var(--muted); font-family: var(--display); font-size: 0.9rem; background: rgba(10,12,17,.7); }
 footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 footer a { color: var(--muted); }
+
+
+/* Calmer layout */
+.statement { max-width: 20em; }
+.pull { margin: 0; padding: 0; border: 0; font-family: var(--body); font-style: normal; font-size: clamp(1.15rem, 2.2vw, 1.4rem); line-height: 1.55; color: var(--muted); max-width: 32em; }
+.proof { margin-top: 16px; font-size: 1.08rem; line-height: 1.6; color: var(--muted); max-width: 30em; }
+.proof a { font-family: var(--display); font-weight: 600; white-space: nowrap; }
+.klist { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; max-width: 900px; }
+@media (max-width: 700px) { .klist { grid-template-columns: 1fr; } }
+.klist li { padding: 16px 0; border-top: 1px solid var(--line); }
+.klist b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.05rem; }
+.klist span { color: var(--muted); font-size: 0.98rem; }
+.exploring { margin-top: 30px; }
+.exploring > p { font-family: var(--display); font-weight: 600; font-size: 0.95rem; color: var(--muted); }
+.exploring .chips { margin-top: 10px; }
+.role .one { margin-top: 8px; color: var(--muted); max-width: 40em; }
+.role { padding-bottom: 26px; }
+.edu-line { margin-top: 26px; color: var(--muted); font-size: 0.98rem; }
+.edu-line b { color: var(--ink); font-family: var(--display); font-weight: 600; }
+.rgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 900px; }
+@media (max-width: 760px) { .rgrid { grid-template-columns: 1fr; } }
+.pill.talk { background: rgba(220,228,245,.1); color: var(--ink); }
+.rcard .foot { color: var(--muted); }
+.rcard a.foot { color: var(--hema); }
+.email { color: var(--ink); text-decoration: none; }
+.email:hover { color: var(--eosin); }
+.feature .copy > p { max-width: 30em; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -335,25 +361,22 @@ footer a { color: var(--muted); }
 </nav>
 
 <main>
-  <section class="hero" id="home" data-shape="brain" data-nav="home">
+  <section class="hero" id="home" data-shape="orb" data-nav="home">
     <div class="wrap">
       <div class="col">
         <span class="status"><span class="pulse" aria-hidden="true"></span>Open to remote AI engineering roles</span>
         <h1 class="name"><span>Yuvraj</span><span>Pratap</span><span>Singh</span></h1>
         <p class="role-title">AI Engineer</p>
         <p class="statement">I build AI for every field it can make better: hospitals, courtrooms, factories, the skies and the businesses in between.</p>
-        <p class="lede">I'm an AI engineer who loves emerging AI. When a new idea lands, like AI agents, multimodal models or retrieval-augmented generation, I want to understand it deeply and then build something real with it.</p>
         <div class="ctas">
           <a class="btn primary" href="#contact">Get in touch</a>
-          <a class="btn" href="#fields">See where I've used AI</a>
+          <a class="btn" href="#fields">See my work</a>
         </div>
         <div class="hero-links">
           <a href="https://github.com/Yuvraj235">GitHub</a>
           <a href="https://www.linkedin.com/in/yuvrajpratapsingh23">LinkedIn</a>
-          <a href="#research">IEEE papers</a>
           <a href="Yuvraj_Pratap_Singh_Resume.pdf" download>Download resume</a>
         </div>
-        <p class="where">Based in Noida, India. 2+ years building AI for teams in Sweden, the US, the UAE and India.</p>
       </div>
     </div>
   </section>
@@ -367,35 +390,20 @@ footer a { color: var(--muted); }
     </div>
   </div>
 
-  <section class="block" id="vision" data-shape="brain" data-nav="vision">
+  <section class="block" id="vision" data-shape="orb" data-nav="vision">
     <div class="wrap">
       <div class="sec-head">
         <h2>What if every field had a team of AI agents working beside it?</h2>
-        <p>That question is why I do this work.</p>
       </div>
-      <blockquote class="pull">I believe AI should work beside people everywhere: in hospitals, courts, factories and businesses. It should take on the routine work and hand the hard calls to a human, with the evidence laid out.</blockquote>
-      <div class="pillars">
-        <div class="pillar glass">
-          <h3>Agents that do the work</h3>
-          <p>Chatbots answer questions. Agents read the record, run the checks, call the right tools and finish the task. That shift from talking to doing is what excites me most about AI right now.</p>
-        </div>
-        <div class="pillar glass">
-          <h3>AI you can question</h3>
-          <p>Whether it's a diagnosis or a legal answer, trust is everything. An agent should explain why it decided something, say when it isn't sure, and never act beyond the permissions it was given.</p>
-        </div>
-        <div class="pillar glass">
-          <h3>Always on the next thing</h3>
-          <p>AI changes every month, and that's what I love about it. I read the new papers, try new models and tools the week they land, and turn the useful ones into working systems.</p>
-        </div>
-      </div>
+      <p class="pull">I love emerging AI because every new idea, from agents to multimodal models, brings that closer. My aim is AI that takes on the routine work and leaves the hard calls to people.</p>
     </div>
   </section>
 
   <section class="block" id="fields" data-nav="fields">
     <div class="wrap">
-      <div class="sec-head" data-shape="brain">
+      <div class="sec-head" data-shape="orb">
         <h2>AI in every field</h2>
-        <p>The same core ideas, agents, vision, language and retrieval, solve very different problems. Scroll through the five fields where I've put them to work.</p>
+        <p>Five fields where I've put AI to work.</p>
       </div>
     </div>
 
@@ -403,16 +411,7 @@ footer a { color: var(--muted); }
       <div class="wrap"><div class="col">
         <p class="kicker">Healthcare</p>
         <h3>Helping doctors see disease earlier</h3>
-        <p>Medical AI has to read scans, notes and records together, and it has to show its reasoning, because a clinician must be able to trust it.</p>
-        <div class="built glass">
-          <h4>What I've built</h4>
-          <ul>
-            <li>A six-agent colon cancer AI that fuses endoscopy images, clinical text and patient data, with 99.53% test accuracy</li>
-            <li>Breast cancer detection on 10,000+ patient records with SHAP explanations, 89% AUC (Open Health Systems Lab)</li>
-            <li>A multi-agent hospital simulation and a clinical NLP pipeline (Winniio, Sweden)</li>
-            <li>A registered design for an AI-based X-ray radiology machine</li>
-          </ul>
-        </div>
+        <p class="proof">A six-agent colon cancer AI, explainable breast cancer detection with 89% AUC, a hospital simulation for Winniio, and an AI X-ray machine design.</p>
       </div></div>
     </div>
 
@@ -420,13 +419,7 @@ footer a { color: var(--muted); }
       <div class="wrap"><div class="col">
         <p class="kicker">Law</p>
         <h3>Making the law easier to search</h3>
-        <p>Legal questions need exact answers with sources. Retrieval-augmented generation grounds a language model in the actual text of the law, so it cites sections instead of guessing.</p>
-        <div class="built glass">
-          <h4>What I've built</h4>
-          <ul>
-            <li>Lex-Indic-Legal: an Indian criminal law assistant covering 18 BNS sections and 51 IPC-to-BNS mappings, with voice input and a 9-page legal analysis PDF in under 60 seconds. <a href="https://github.com/Yuvraj235/Lex-Indic-legal">View on GitHub</a></li>
-          </ul>
-        </div>
+        <p class="proof">Lex-Indic-Legal answers Indian criminal law questions from the actual BNS text and writes a 9-page analysis in under 60 seconds. <a href="https://github.com/Yuvraj235/Lex-Indic-legal">Code</a></p>
       </div></div>
     </div>
 
@@ -434,13 +427,7 @@ footer a { color: var(--muted); }
       <div class="wrap"><div class="col">
         <p class="kicker">Defense and aerospace</p>
         <h3>Making drones more accurate</h3>
-        <p>Unmanned aerial vehicles work with noisy sensors and no time to wait. AI models can raise the accuracy of what they see and how they perform in demanding defense settings.</p>
-        <div class="built glass">
-          <h4>What I've built</h4>
-          <ul>
-            <li>IEEE paper "Accuracy Enhancement of UAV using AI Models in Defense", presented at ICCETM 2025 in Sydney. <a href="https://ieeexplore.ieee.org/document/11558039">Read on IEEE Xplore</a></li>
-          </ul>
-        </div>
+        <p class="proof">My IEEE paper, presented at ICCETM 2025 in Sydney, uses AI models to raise UAV accuracy in defense. <a href="https://ieeexplore.ieee.org/document/11558039">Paper</a></p>
       </div></div>
     </div>
 
@@ -448,13 +435,7 @@ footer a { color: var(--muted); }
       <div class="wrap"><div class="col">
         <p class="kicker">Manufacturing</p>
         <h3>Catching defects before they ship</h3>
-        <p>On a production line, a vision model has milliseconds to decide. Speed and false alarms matter as much as raw accuracy.</p>
-        <div class="built glass">
-          <h4>What I've built</h4>
-          <ul>
-            <li>Real-time metal sheet defect detection with YOLOv5 and YOLOv7 on 12,000+ annotated images: 96.8% mAP, under 50 ms per image, 22% fewer false positives than the baseline</li>
-          </ul>
-        </div>
+        <p class="proof">Real-time metal sheet defect detection with YOLO: 96.8% mAP at under 50 ms per image.</p>
       </div></div>
     </div>
 
@@ -462,15 +443,7 @@ footer a { color: var(--muted); }
       <div class="wrap"><div class="col">
         <p class="kicker">Business and voice</p>
         <h3>Automating the busywork</h3>
-        <p>Agents can run multi-step workflows across a company's tools, and modern voice models can speak to customers in their own dialect.</p>
-        <div class="built glass">
-          <h4>What I've built</h4>
-          <ul>
-            <li>A full application and social media automation for Tocnis (UAE), speaking with an ElevenLabs Arabic voice in the Syrian dialect</li>
-            <li>Workflow agents connected to client databases, APIs and messaging tools, with live dashboards</li>
-            <li>3 end-to-end ML pipelines at Neurobridge Tech, 30% faster from training to production</li>
-          </ul>
-        </div>
+        <p class="proof">An app and Arabic-voice social media automation for Tocnis in the UAE, plus workflow agents with live dashboards.</p>
       </div></div>
     </div>
   </section>
@@ -479,63 +452,23 @@ footer a { color: var(--muted); }
     <div class="wrap">
       <div class="sec-head">
         <h2>What I know about AI</h2>
-        <p>The ideas I work with every day, what they actually do, and how I've used them.</p>
       </div>
-      <div class="kgrid">
-        <article class="kitem glass">
-          <h3>Agentic AI</h3>
-          <p>An agent breaks a goal into steps, picks a tool for each one, remembers what happened and checks its own output. I design multi-agent systems where each agent has one job and a clean handoff, like the 8+ parallel agents in my hospital simulation.</p>
-          <p class="tools">LangChain, OpenAI API, n8n, Make, MCP</p>
-        </article>
-        <article class="kitem glass">
-          <h3>LLMs and RAG</h3>
-          <p>Language models write fluently but can invent facts. Retrieval-augmented generation fixes that by finding the right passages with embeddings and vector search, then making the model answer from them.</p>
-          <p class="tools">FAISS, Pinecone, ChromaDB, Ollama, Llama 3.3 on Groq</p>
-        </article>
-        <article class="kitem glass">
-          <h3>Computer vision</h3>
-          <p>CNNs like ResNet and EfficientNet learn visual features layer by layer. Detectors like YOLO find and box every object in one pass, fast enough for a live production line.</p>
-          <p class="tools">PyTorch, OpenCV, YOLOv5, YOLOv7</p>
-        </article>
-        <article class="kitem glass">
-          <h3>Multimodal AI</h3>
-          <p>Real decisions use more than one kind of data. I give images, text and tables each their own specialist model, then fuse their outputs into one prediction.</p>
-          <p class="tools">ResNet50, EfficientNet-B4, BioBERT</p>
-        </article>
-        <article class="kitem glass">
-          <h3>Medical AI</h3>
-          <p>Medical data arrives as DICOM scans, FHIR records and free-text notes, and all of it is private. I build HIPAA-aware pipelines with a clinician kept in the loop.</p>
-          <p class="tools">DICOM, FHIR, clinical NLP, NER, X-ray and CT</p>
-        </article>
-        <article class="kitem glass">
-          <h3>Explainable AI</h3>
-          <p>A model people can't question won't get used. SHAP shows which features pushed each prediction; adding it cut clinicians' AI-review time by about 25% at OHSL.</p>
-          <p class="tools">SHAP, XGBoost</p>
-        </article>
-        <article class="kitem glass">
-          <h3>Machine learning on tables</h3>
-          <p>For tabular data, gradient-boosted trees often beat deep learning. Picking the right metric matters too: in cancer screening, missing a case costs more than a false alarm, so sensitivity counts.</p>
-          <p class="tools">scikit-learn, XGBoost, A/B testing</p>
-        </article>
-        <article class="kitem glass">
-          <h3>MLOps</h3>
-          <p>A model only helps once it runs reliably. I package models in Docker, serve them through FastAPI or gRPC, track experiments in MLflow and schedule pipelines with Airflow.</p>
-          <p class="tools">Kubernetes, CI/CD, AWS, GCP, Azure</p>
-        </article>
-        <article class="kitem glass">
-          <h3>Generative voice</h3>
-          <p>Text-to-speech models now carry emotion and regional accents. I've used them to give a brand a natural Arabic voice in the Syrian dialect for automated social content.</p>
-          <p class="tools">ElevenLabs, automation workflows</p>
-        </article>
-      </div>
-      <div class="emerging glass">
-        <h3>Emerging AI I'm exploring now</h3>
-        <p>The ideas I'm reading about, testing and building small experiments with, because they're where AI is heading next.</p>
+      <ul class="klist">
+        <li><b>Agentic AI</b><span>Multi-agent systems that plan, use tools and check their own work</span></li>
+        <li><b>LLMs and RAG</b><span>Grounding language models in real documents so they don't make things up</span></li>
+        <li><b>Computer vision</b><span>CNNs and YOLO detectors, fast enough for a live production line</span></li>
+        <li><b>Multimodal AI</b><span>Fusing images, text and tables into one prediction</span></li>
+        <li><b>Medical AI</b><span>DICOM, FHIR and clinical NLP, with a clinician in the loop</span></li>
+        <li><b>Explainable AI</b><span>SHAP explanations that show why a model decided</span></li>
+        <li><b>MLOps</b><span>Docker, FastAPI, MLflow and Airflow to ship models reliably</span></li>
+        <li><b>Generative voice</b><span>Natural, dialect-aware voices with ElevenLabs</span></li>
+      </ul>
+      <div class="exploring">
+        <p>Exploring now</p>
         <ul class="chips">
-          <li>Agent protocols and MCP</li>
+          <li>MCP and agent protocols</li>
           <li>Security for AI agents</li>
-          <li>Multimodal foundation models</li>
-          <li>Small models that run locally</li>
+          <li>Small local models</li>
           <li>Real-time voice agents</li>
           <li>Quantum machine learning</li>
         </ul>
@@ -547,13 +480,12 @@ footer a { color: var(--muted); }
     <div class="wrap">
       <div class="sec-head">
         <h2>Six agents. One diagnosis.</h2>
-        <p>My flagship project, and the clearest example of how I think about agentic AI.</p>
       </div>
       <article class="feature glass">
         <div class="copy">
-          <p class="kicker">Multi-agent medical AI, 2026</p>
+          <p class="kicker">Flagship project, 2026</p>
           <h3>Agentic Multimodal Colon Cancer AI</h3>
-          <p>Six AI agents screen for colorectal cancer the way a clinical team reviews a case: the endoscopy image, the clinical notes and the patient's record together. ResNet50 and EfficientNet-B4 read the image, BioBERT reads the clinical text, and the pipeline fuses every view into one finding.</p>
+          <p>Six agents screen for colorectal cancer the way a clinical team reviews a case: image, notes and patient record together.</p>
           <div class="metrics">
             <div class="metric"><b>99.53%</b><span>test accuracy</span></div>
             <div class="metric"><b>0.9946</b><span>F1 score</span></div>
@@ -587,7 +519,6 @@ footer a { color: var(--muted); }
     <div class="wrap">
       <div class="sec-head">
         <h2>Built with teams in four countries</h2>
-        <p>Remote, cross-border work in Sweden, the US, the UAE and India.</p>
       </div>
       <ol class="timeline">
         <li class="role">
@@ -595,11 +526,7 @@ footer a { color: var(--muted); }
           <div class="body">
             <h3>AI Engineer, Winniio AB</h3>
             <p class="meta">Sweden, remote</p>
-            <ul>
-              <li>Architected a multi-agent autonomous hospital simulation in Python and LangChain. Parallel task scheduling cut simulation run-time by 35 to 40% across 8+ concurrent agent threads.</li>
-              <li>Built a clinical NLP pipeline that interprets doctor-patient dialogue with 90%+ NER accuracy.</li>
-              <li>Deployed an OCR module that cut document-to-record processing from hours to under 5 minutes.</li>
-            </ul>
+            <p class="one">Built a multi-agent hospital simulation and a clinical NLP pipeline. Parallel scheduling cut run-time by 35 to 40%.</p>
           </div>
         </li>
         <li class="role">
@@ -607,10 +534,7 @@ footer a { color: var(--muted); }
           <div class="body">
             <h3>AI Agent Developer, Tocnis</h3>
             <p class="meta">UAE, remote</p>
-            <ul>
-              <li>Delivered a full client application and social media automation with an ElevenLabs Arabic voice.</li>
-              <li>Built autonomous agents for multi-step business workflows connected to client systems.</li>
-            </ul>
+            <p class="one">Built a client app, Arabic-voice social media automation and workflow agents.</p>
           </div>
         </li>
         <li class="role">
@@ -618,11 +542,7 @@ footer a { color: var(--muted); }
           <div class="body">
             <h3>Research Intern, Open Health Systems Lab</h3>
             <p class="meta">USA, remote</p>
-            <ul>
-              <li>Built an XGBoost breast cancer detection pipeline on 10,000+ patient records, reaching 89% AUC and 87% sensitivity.</li>
-              <li>Added SHAP explanations that cut clinicians' AI-review time by about 25%.</li>
-              <li>Curated metadata for 50,000+ healthcare records in Alation and co-authored a research paper for OHSL's global open-health data initiative.</li>
-            </ul>
+            <p class="one">Breast cancer detection on 10,000+ records with 89% AUC. SHAP explanations cut clinicians' review time by 25%.</p>
           </div>
         </li>
         <li class="role">
@@ -630,9 +550,7 @@ footer a { color: var(--muted); }
           <div class="body">
             <h3>AI/ML Engineer, Neurobridge Tech</h3>
             <p class="meta">Delhi</p>
-            <ul>
-              <li>Built 3 end-to-end ML pipelines, from data ingestion to FastAPI deployment, cutting training-to-production time by 30% and raising model accuracy by 12%.</li>
-            </ul>
+            <p class="one">Built 3 end-to-end ML pipelines, 30% faster from training to production.</p>
           </div>
         </li>
         <li class="role">
@@ -640,86 +558,49 @@ footer a { color: var(--muted); }
           <div class="body">
             <h3>Developer Intern, VizExec Transformation</h3>
             <p class="meta">Gurgaon</p>
-            <ul>
-              <li>Built a WebRTC video conferencing module for 1,000+ concurrent participants at under 200 ms latency, for a large-scale constituency engagement platform.</li>
-            </ul>
+            <p class="one">Built WebRTC video calls for 1,000+ people at once.</p>
           </div>
         </li>
       </ol>
-      <ul class="edu">
-        <li class="glass"><b>M.Tech, Artificial Intelligence</b><span>Amity University, Noida</span><small>Aug 2024 to May 2026</small></li>
-        <li class="glass"><b>B.Tech, Computer Science and Engineering</b><span>Amity University, Noida</span><small>Jul 2019 to May 2023</small></li>
-        <li class="glass"><b>PR Head, Amity Data Science Club</b><span>2 years, grew membership by 40%</span><small>Also top performer, Ethical Hacking training</small></li>
-      </ul>
+      <p class="edu-line"><b>M.Tech, Artificial Intelligence</b> and <b>B.Tech, Computer Science</b>, Amity University, Noida</p>
     </div>
   </section>
 
   <section class="block" id="research" data-shape="ribs" data-nav="research">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Two IEEE papers and an AI X-ray machine</h2>
-        <p>Published research and a registered design across medical imaging and applied AI.</p>
+        <h2>Papers, a patent and a talk</h2>
       </div>
       <div class="rgrid">
         <article class="rcard glass">
           <span class="pill paper">IEEE, 2025</span>
           <h3>AI Framework for Enhanced Detection of Colonic Abnormalities</h3>
-          <p>An AI framework for detecting abnormalities of the colon in medical images, the same problem my multi-agent colon cancer pipeline tackles.</p>
           <a class="foot" href="https://ieeexplore.ieee.org/document/11584361">Read on IEEE Xplore</a>
         </article>
         <article class="rcard glass">
           <span class="pill paper">IEEE ICCETM 2025, Sydney</span>
           <h3>Accuracy Enhancement of UAV using AI Models in Defense</h3>
-          <p>Using AI models to improve the accuracy of unmanned aerial vehicles in defense settings. Presented at ICCETM 2025 in Sydney, Australia.</p>
           <a class="foot" href="https://ieeexplore.ieee.org/document/11558039">Read on IEEE Xplore</a>
         </article>
         <article class="rcard glass">
           <span class="pill ip">Design patent</span>
           <h3>Artificial Intelligence Based Medical X-Ray Radiology Machine</h3>
-          <p>Registered Design No. 435775-001, class 24-01, under India's Designs Act, 2000. Co-designed with Prof. Dr. Shailendra Narayan Singh, Hrishita Panjetha, Immanuel Joseph and Rishabh Upadhyay.</p>
-          <p class="foot">Registered 26 Oct 2024, certificate issued Jan 2025</p>
+          <p class="foot">Registered Design No. 435775-001, India, 2024</p>
+        </article>
+        <article class="rcard glass">
+          <span class="pill talk">Guest talk</span>
+          <h3>Agentic AI in Healthcare: The Future of Intelligent Medical Systems</h3>
+          <p class="foot">Bennett University, 24 July 2026</p>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section class="block" id="speaking" data-shape="brain" data-nav="research">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Speaking about where AI is heading</h2>
-      </div>
-      <article class="talk glass">
-        <div class="date"><div class="d">24</div><div class="m">July 2026</div></div>
-        <div>
-          <h3>Agentic AI in Healthcare: The Future of Intelligent Medical Systems</h3>
-          <p>Guest lecture at Bennett University, AI Seminar Hall, Greater Noida. How autonomous agents can read records, coordinate care tasks and support clinical decisions, and where they still need a human in the loop.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="block" id="method" data-shape="agents" data-nav="research">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>How I build an agent, in any field</h2>
-        <p>The same five steps, whether the agent screens a scan, answers a legal question or posts for a brand.</p>
-      </div>
-      <ol class="method">
-        <li><h3>Start from the cost of a mistake</h3><p>Before picking a model, I write down what a wrong answer costs. A missed tumour needs far more checking than a late social post.</p></li>
-        <li><h3>Ground it in the real record</h3><p>Agents read from the source of truth, such as patient records, the text of the law or a client's database, so every answer traces back to something real.</p></li>
-        <li><h3>Give it the fewest tools that work</h3><p>One agent holding database write, shell and network access at once is a security risk. I split permissions across narrow tools, each with only what it needs.</p></li>
-        <li><h3>Check before it acts</h3><p>A second model or a person reviews anything that matters, and the agent says so when it can't verify a result.</p></li>
-        <li><h3>Test on data it hasn't seen, then ship</h3><p>Measure on held-out cases, deploy behind an API, watch real usage and tune.</p></li>
-      </ol>
     </div>
   </section>
 
   <section class="contact" id="contact" data-shape="wave" data-nav="contact">
     <div class="wrap">
       <h2>Building something with AI? Let's talk.</h2>
-      <p class="lede">I'm open to remote AI engineering roles with teams anywhere, and to project work on AI agents in any field.</p>
       <div class="row">
-        <span class="email" id="email">ps9359490@gmail.com</span>
+        <a class="email" id="email" href="mailto:ps9359490@gmail.com">ps9359490@gmail.com</a>
         <button class="btn primary" id="copy" type="button">Copy email</button>
       </div>
       <p class="copied" id="copied" aria-live="polite"></p>
@@ -727,7 +608,6 @@ footer a { color: var(--muted); }
         <a class="btn" href="https://www.linkedin.com/in/yuvrajpratapsingh23">LinkedIn</a>
         <a class="btn" href="https://github.com/Yuvraj235">GitHub</a>
         <a class="btn" href="Yuvraj_Pratap_Singh_Resume.pdf" download>Download resume (PDF)</a>
-        <a class="btn" href="mailto:ps9359490@gmail.com">Open in mail app</a>
       </div>
     </div>
   </section>
@@ -806,7 +686,7 @@ footer a { color: var(--muted); }
   } catch (e) { return; }
 
   var small = Math.min(window.innerWidth, window.innerHeight) < 700;
-  var N = small ? 12000 : 24000;
+  var N = small ? 10000 : 18000;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.5 : 2));
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0x000000, 0);
@@ -823,28 +703,17 @@ footer a { color: var(--muted); }
   function hex(h) { var c = new THREE.Color(h); return [c.r, c.g, c.b]; }
   function mix(a, b, t) { return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
   function sc(a, k) { return [a[0] * k, a[1] * k, a[2] * k]; }
-  var C = { eosin: hex('#FF5C8A'), hema: hex('#A796FF'), xray: hex('#7FE3EA'), bone: hex('#E6F4FF'), dim: hex('#5B4F86'), gold: hex('#F2C46D') };
+  var C = { eosin: hex('#F2B35B'), hema: hex('#8FB4FF'), xray: hex('#A9C4E8'), bone: hex('#E8EEF8'), dim: hex('#3E4A63'), gold: hex('#F2B35B') };
 
   /* Shapes. Each returns [x, y, z, color] for particle i. */
   var S = {};
-  S.brain = function (i) {
-    var f = i / N;
-    if (f < 0.88) {
-      var d = unit(), s = d[0] < 0 ? -1 : 1;
-      var x = Math.abs(d[0]) * 0.82 * s, y = d[1] * 0.78, z = d[2] * 1.12;
-      var g = Math.sin(x * 11 + 1.3) * Math.sin(y * 12) * Math.sin(z * 10 + 0.7) + 0.5 * Math.sin((x + z) * 17) * Math.sin(y * 15 + 2);
-      var k = 1 + 0.055 * g;
-      x = x * k + s * 0.06; y = y * k; z = z * k;
-      if (y < -0.35) y = -0.35 + (y + 0.35) * 0.45;
-      y = Math.round(y * 34) / 34;
-      var b = 0.5 + 0.5 * Math.max(0, Math.min(1, (g + 1.2) / 2.4));
-      return [x, y + 0.1, z, sc(C.eosin, b)];
-    } else if (f < 0.96) {
-      var e = unit();
-      return [e[0] * 0.42, -0.36 + e[1] * 0.2, -0.7 + e[2] * 0.28, sc(C.eosin, 0.6)];
-    }
-    var a = rnd() * Math.PI * 2, h = rnd();
-    return [Math.cos(a) * 0.09, -0.32 - h * 0.42, -0.38 + Math.sin(a) * 0.09 - h * 0.18, sc(C.hema, 0.7)];
+  S.orb = function (i) {
+    var d = unit();
+    var n = Math.sin(d[0] * 3.1 + 1.2) * Math.sin(d[1] * 2.7) * Math.sin(d[2] * 3.3 + 0.4) + 0.5 * Math.sin(d[0] * 6.2 + d[2] * 5.1);
+    var r = 1.0 + 0.15 * n;
+    var y = Math.round(d[1] * r * 30) / 30;
+    var b = 0.4 + 0.6 * Math.max(0, Math.min(1, (n + 1) / 2));
+    return [d[0] * r, y, d[2] * r, n > 0.8 ? sc(C.eosin, 0.9) : sc(C.xray, b)];
   };
   S.helix = function (i) {
     var f = i / N, H = 1.35, x, y, z, col;
@@ -1006,10 +875,10 @@ footer a { color: var(--muted); }
   spin.add(cloud); tilt.add(spin); holder.add(tilt); scene.add(holder);
 
   /* Faint specks in the distance */
-  var starN = small ? 350 : 700, sp = new Float32Array(starN * 3);
+  var starN = small ? 200 : 400, sp = new Float32Array(starN * 3);
   for (var s = 0; s < starN; s++) { sp[s * 3] = (rnd() * 2 - 1) * 9; sp[s * 3 + 1] = (rnd() * 2 - 1) * 6; sp[s * 3 + 2] = -2 - rnd() * 6; }
   var sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.BufferAttribute(sp, 3));
-  scene.add(new THREE.Points(sg, new THREE.PointsMaterial({ size: 0.03, map: tex, color: 0x6f6596, transparent: true, opacity: 0.6, depthWrite: false })));
+  scene.add(new THREE.Points(sg, new THREE.PointsMaterial({ size: 0.03, map: tex, color: 0x5a6680, transparent: true, opacity: 0.5, depthWrite: false })));
 
   var target = null, current = '', t0 = 0, morphing = false, DUR = 1800, dirty = true;
   function setShape(name) {
@@ -1046,7 +915,7 @@ footer a { color: var(--muted); }
     holder.position.set(wide ? halfW * 0.55 : 0, wide ? 0 : halfH * 0.2, 0);
     var k = wide ? Math.min(1.05, halfW * 0.34) : Math.min(0.95, halfW / 1.35);
     holder.scale.set(k, k, k);
-    mat.opacity = wide ? 0.95 : 0.6;
+    mat.opacity = wide ? 0.8 : 0.34;
     dirty = true;
   }
   window.addEventListener('resize', layout);
@@ -1078,7 +947,7 @@ footer a { color: var(--muted); }
     }, { rootMargin: '-42% 0px -50% 0px' });
     document.querySelectorAll('[data-shape]').forEach(function (el) { shapeIO.observe(el); });
   }
-  setShape('brain');
+  setShape('orb');
   requestAnimationFrame(loop);
 })();
 </script>
